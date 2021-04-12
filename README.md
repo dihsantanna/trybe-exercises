@@ -5,3 +5,4 @@ O arquivo trybe-skills.txt contém as habilidades ensinadas pela trybe até o mo
 Toda a minha evolução como programador será mostrada aqui.
 
 Ao infinito e alem!!!
+**************//***************
