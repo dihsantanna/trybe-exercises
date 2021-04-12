@@ -6,4 +6,4 @@ Toda a minha evolução como programador será mostrada aqui.
 
 Ao infinito e alem!!!
 
-**************//***************
+ # * * * * * * * * * * * * * * // * * * * * * * * * * * * * * * #
