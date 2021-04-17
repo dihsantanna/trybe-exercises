@@ -1,0 +1,14 @@
+h1, p {
+    text-align: center;
+}
+
+li:hover {
+    background-color: aquamarine;
+    font-family: monospace;
+    transition:step-start;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+}
