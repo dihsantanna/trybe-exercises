@@ -348,4 +348,4 @@ Resultado: R$ 2.612,55.
  
  let salarioLiquido = salarioDescInss - (salarioDescInss * descontoIr);
  
- console.log("Salário Líquido = "+salarioLiquido);
+ console.log("Salário Líquido = R$ "+salarioLiquido.toFixed(2));
