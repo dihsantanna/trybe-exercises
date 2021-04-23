@@ -1,7 +1,7 @@
 
 // Leia atentamente os enunciados e faça o que se pede! Iremos utilizar esse array para realizar os exercícios do 1 ao 7:
 
-let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+//let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 
 // 01 - Nesse primeiro exercício, percorra o array imprimindo todos os valores nele contidos com a função console.log();
 
@@ -91,7 +91,7 @@ console.log(menorValor);
 
 // 08 - Utilizando for , crie um array que vá de 1 até 25 e imprima o resultado;
 
-
+/*
 let numeros = [];
 
 for (index = 1; index <= 25; index += 1) {
@@ -109,3 +109,4 @@ for (index = 0; index < numeros.length; index += 1) {
 }
 
 console.log(resultadoDivisao);
+*/
