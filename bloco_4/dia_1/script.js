@@ -111,19 +111,18 @@ else {
 
 /*Exercício 06 - Escreva um programa que receba o nome de uma peça de xadrez e retorne os movimentos que ela faz.
 
-*Como desafio, faça o programa funcionar tanto se receber o nome de uma peça com letras maiúsculas quanto com letras
+* Como desafio, faça o programa funcionar tanto se receber o nome de uma peça com letras maiúsculas quanto com letras
 minúsculas, sem aumentar a quantidade de condicionais.
 
-*Como dica, você pode pesquisar uma função que faz uma string ficar com todas as letras minúsculas (lower case) .
+* Como dica, você pode pesquisar uma função que faz uma string ficar com todas as letras minúsculas (lower case) .
 
-*Se a peça passada for inválida, o programa deve retornar uma mensagem de erro.
+* Se a peça passada for inválida, o programa deve retornar uma mensagem de erro.
 
-*Exemplo: bishop (bispo) -> diagonals (diagonais) */
+* Exemplo: bishop (bispo) -> diagonals (diagonais) */
 
 let pecaDeXadrez = "Rei";
-let lcName = pecaDeXadrez.toLowerCase();
 
-switch (lcName) {
+switch (pecaDeXadrez.toLowerCase()) {
     case "rei":
         console.log("Todas as direções (horizontal, vertical e diagonal), uma casa por vez.");
         break;
@@ -150,4 +149,78 @@ switch (lcName) {
 
     default:
         console.log("ERRO!")
+}
+
+/*Exercício 07 - Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F.
+Siga essas regras:
+
+
+* Porcentagem >= 90 -> A
+
+* Porcentagem >= 80 -> B
+
+* Porcentagem >= 70 -> C
+
+* Porcentagem >= 60 -> D
+
+* Porcentagem >= 50 -> E
+
+* Porcentagem < 50 -> F
+
+* O programa deve retornar uma mensagem de erro e encerrar se a nota passada for menor que 0 ou maior que 100. */
+
+let notaProva = 79;
+
+if (notaProva > 100 || notaProva < 0) {
+    console.log("ERRO!");
+}
+else if (notaProva >= 90) {
+    console.log("A");
+}
+else if (notaProva >= 80) {
+    console.log("B");
+}
+else if (notaProva >= 70) {
+    console.log("C");
+}
+else if (notaProva >= 60) {
+    console.log("D");
+}
+else if (notaProva >= 50) {
+    console.log("E");
+}
+else {
+    console.log("F");
+}
+
+/*Exercício 08 - Escreva um programa que defina três números em variáveis e retorne true se pelo menos uma das três
+ for par. Caso contrário, ele retorna false .
+
+* Bonus: use somente um if . */
+
+let numeroA = 14;
+let numeroB = 18;
+let numeroC = 2;
+
+if ((numeroA % 2 == 0) || (numeroB % 2 == 0) || (numeroC % 2 == 0)) {
+    console.log(true);
+}
+else {
+    console.log(false);
+}
+
+/*Exercício 09 - Escreva um programa que defina três números em variáveis e retorne true se pelo menos
+uma das três for ímpar. Caso contrário, ele retorna false .
+
+* Bonus: use somente um if .*/
+
+let numberA = 14;
+let numberB = 17;
+let numberC = 10;
+
+if ((numberA % 2 != 0) || (numberB % 2 != 0) || (numberC % 2 != 0)) {
+    console.log(true);
+}
+else {
+    console.log(false);
 }
