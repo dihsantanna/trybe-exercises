@@ -11,16 +11,14 @@ n = 5
 
 */
 
-let n = 2;
+let n = 5;
 let symbol = "*";
 let imputLine = "";
 
-if (n > 1) {
-    for (let index = 0; index < n; index += 1) {
-        imputLine = imputLine + symbol;
-    }
+for (let indexColumm = 0; indexColumm < n; indexColumm += 1){
+    imputLine += symbol;
+}
 
-    for (let index = 0; index < n; index += 1) {
-        console.log(imputLine);
-    }
+for (let indexLine = 0; indexLine < n; indexLine += 1){
+    console.log(imputLine);
 }
