@@ -7,27 +7,31 @@ Valor esperado no retorno da função: Fernanda .
 
 function largerName(array){
 
-        let largeNameIndex = 0;
         let comparator = 0;
+        let largerName = '';
 
     for (let index = 0; index < array.length; index += 1){
         
-        let word = array[index]
+        let word = array[index];
         let counter = 0;
 
         for (let letterIndex = 0; letterIndex < word.length; letterIndex += 1){
             counter += 1;
-        }
+        };
+
+        if (counter === comparator){
+            largerName = largerName + ", " + array[index];
+        };
 
         if (counter > comparator){
             comparator = counter;
-            largeNameIndex = index;
-        }
+            largerName = array[index];
+        };
+        
+    };
 
-    }
+    return largerName;
 
-    return array[largeNameIndex];;
-
-}
+};
 
 console.log(largerName(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']));
