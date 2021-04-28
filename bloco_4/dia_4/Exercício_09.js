@@ -30,7 +30,7 @@ function largerName(array){
         
     };
 
-    return largerName;
+return largerName;
 
 };
 
