@@ -292,7 +292,7 @@ Resultado: R$ 2.612,55.
  Dica: que tal identificar as alíquotas com variáveis de nomes explicativos? */
 
 
- let salarioBruto = 10000;
+ let salarioBruto = 3000;
 
  let descontoInss ;
  
@@ -324,28 +324,38 @@ Resultado: R$ 2.612,55.
  }
  
  let descontoIr ;
+ let deducaoIr ;
  
  //Condições de desconto do IR.
  
  if (salarioDescInss <= 1903.98) {
     descontoIr = 0;
+    deducaoIr = 0;
  }
  else if (salarioDescInss <= 2826.65) {
     descontoIr = 0.075;
+    deducaoIr = 142.80;
  }
  else if (salarioDescInss <= 3751.05) {
     descontoIr = 0.15;
+    deducaoIr = 354.80;
  }
  else if (salarioDescInss <= 4664.68) {
     descontoIr = 0.225;
+    deducaoIr = 636.13;
  }
  else {
-    descontoIr = 0.275
+    descontoIr = 0.275;
+    deducaoIr = 869.36;
  }
  
+
+ 
+
+
  
  //Cálculo do salário Líquido.
  
- let salarioLiquido = salarioDescInss - (salarioDescInss * descontoIr);
+ let salarioLiquido = salarioDescInss - ((salarioDescInss * descontoIr) - deducaoIr);
  
  console.log("Salário Líquido = R$ "+salarioLiquido.toFixed(2));
