@@ -54,17 +54,10 @@ function conversorRomanoNatural(stringNumeroRomano){
         };
     };
 
-    for (let index in stringNumeroRomano){
-        for (let key in numRomanos){
-            if (stringNumeroRomano[index] == key){
-                numNatural += numRomanos[key]
-            };
-        };
-        
-    };
+
 
 return numNatural;
 
 };
 
-console.log(conversorRomanoNatural('IV'));
+console.log(conversorRomanoNatural('V'));
