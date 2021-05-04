@@ -130,3 +130,14 @@ function mouseLeave() {
 }
 
 mouseLeave();
+
+// Exercício 07
+const writeTask = document.getElementById('task-input');
+const addTaskBtn = document.getElementById('btn-add');
+addTaskBtn.addEventListener('click', function() {
+    if (writeTask.value !== '') {
+        const spanTag = document.createElement('span');
+        spanTag.innerHTML = writeTask.value;
+        document.querySelector('.my-tasks').appendChild(spanTag);
+    }
+})
