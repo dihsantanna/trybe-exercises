@@ -188,7 +188,7 @@ function createLegendTask(color) {
     document.querySelector('.my-tasks').appendChild(legendTask);
 }
 
-createLegendTask('yellow');
+createLegendTask('green');
 
 // Exercício 09 - Implemente uma função que adiciona um evento que ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected , ou seja, quando sua tarefa possuir a classe task selected ela estará selecionada.
 /*
@@ -230,12 +230,41 @@ function selectTaskDay() {
 
 selectTaskDay();
 
-/*const writeTask = document.getElementById('task-input');
-const addTaskBtn = document.getElementById('btn-add');
-addTaskBtn.addEventListener('click', function() {
-    if (writeTask.value !== '') {
-        const spanTag = document.createElement('span');
-        spanTag.innerHTML = writeTask.value;
-        document.querySelector('.my-tasks').appendChild(spanTag);
-    }
-})*/
+// Exercício Bônus - Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
+/*
+Se nenhum caractere for inserido no campo input , a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
+
+Ao pressionar a tecla "enter" o evento também deverá ser disparado.
+
+Dica - Propriedade: keyCode . 
+*/
+
+function createCompromise() {
+    const wrtCompromise = document.getElementById('task-input');
+    const addCompromiseBtn = document.getElementById('btn-add');
+    wrtCompromise.addEventListener('keydown', function(event) {
+        let key = event.keyCode;
+        if (key == 13 && wrtCompromise.value !== '') {
+            const divTag = document.createElement('div');
+            divTag.className = 'compromises';
+            divTag.innerHTML = wrtCompromise.value;
+            document.querySelector('body').appendChild(divTag);
+        }
+        if (key == 13 && wrtCompromise.value === '') {
+            alert('Erro! Seu compromisso jumento. Me dê papai!');
+        }
+    })
+    addCompromiseBtn.addEventListener('click', function() {
+        if (wrtCompromise.value !== '') {
+            const divTag = document.createElement('div');
+            divTag.className = 'compromises';
+            divTag.innerHTML = wrtCompromise.value;
+            document.querySelector('body').appendChild(divTag);
+        } else {
+            alert('Erro! Seu compromisso jumento. Me dê papai!');
+        }
+    
+})
+}
+
+createCompromise()

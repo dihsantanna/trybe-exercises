@@ -153,3 +153,10 @@ label {
   margin: 0px;
   padding: 10px 0;
 }
+
+.compromises {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  font-weight: 500;
+}
