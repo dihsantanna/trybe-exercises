@@ -209,6 +209,27 @@ function selectTask() {
 }
 selectTask();
 
+// Exercício 10 - Implemente uma função que adiciona um evento que ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
+/*
+Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119) .
+*/
+
+function selectTaskDay() {
+    const day = document.getElementsByClassName('day');
+    for (let index = 0; index < day.length; index += 1) {
+        day[index].addEventListener('click', function(event) {
+            const taskSelect = document.querySelector('.selected');
+            if (day[index].style.color !== taskSelect.style.backgroundColor) {
+            event.target.style.color = taskSelect.style.backgroundColor;
+            } else {
+                event.target.style.color = 'rgb(119,119,119)';
+            }
+        })
+    }
+}
+
+selectTaskDay();
+
 /*const writeTask = document.getElementById('task-input');
 const addTaskBtn = document.getElementById('btn-add');
 addTaskBtn.addEventListener('click', function() {
