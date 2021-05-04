@@ -27,7 +27,7 @@ function createMonthDays(){
             liTag.className = 'day holiday';
             liTag.innerHTML = date;
             daysId.appendChild(liTag);
-        } else if (date === 4 || date === 11 || date === 18 || date === 25) {
+        } else if (date === 4 || date === 11 || date === 18) {
             liTag.className = 'day friday';
             liTag.innerHTML = date;
             daysId.appendChild(liTag);
@@ -132,7 +132,24 @@ function mouseLeave() {
 mouseLeave();
 
 // Exercício 07
-const writeTask = document.getElementById('task-input');
+function createTask(task) {
+    const spanTag = document.createElement('span');
+        spanTag.innerHTML = task;
+        document.querySelector('.my-tasks').appendChild(spanTag);
+}
+createTask('Cozinhar');
+
+// Exercício 08
+function createLegendTask(color) {
+    const legendTask = document.createElement('div');
+    legendTask.className = 'task';
+    legendTask.style.backgroundColor = color;
+    document.querySelector('.my-tasks').appendChild(legendTask);
+}
+
+
+
+/*const writeTask = document.getElementById('task-input');
 const addTaskBtn = document.getElementById('btn-add');
 addTaskBtn.addEventListener('click', function() {
     if (writeTask.value !== '') {
@@ -140,4 +157,4 @@ addTaskBtn.addEventListener('click', function() {
         spanTag.innerHTML = writeTask.value;
         document.querySelector('.my-tasks').appendChild(spanTag);
     }
-})
+})*/
