@@ -51,3 +51,23 @@ function createButtonHolidays(Feriados){
 }
 
 createButtonHolidays('Feriados');
+
+// Exercício 03
+function clickHolidays() {
+    const buttonHolidays = document.querySelector('#btn-holidays');
+    buttonHolidays.addEventListener('click', function() {
+        const holiday = document.getElementsByClassName('holiday');
+        for (let index = 0; index < holiday.length; index += 1) {
+            if (holiday[index].style.backgroundColor === 'rgb(5, 212, 5)') {
+                holiday[index].style.backgroundColor = 'rgb(238,238,238';
+                holiday[index].style.border = 'none';
+                holiday[index].style.color = '#666';
+            } else {
+                holiday[index].style.backgroundColor = 'rgb(5, 212, 5)';
+                holiday[index].style.border = '2px solid black';
+                holiday[index].style.color = 'black';
+            }
+        }
+    });
+}
+clickHolidays();
