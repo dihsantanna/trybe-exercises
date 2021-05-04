@@ -23,12 +23,16 @@ function createMonthDays(){
     for (let index = 0; index < dezDaysList.length; index += 1) {
         let date = dezDaysList[index];
         let liTag = document.createElement('li');
-        if (date === 24 || date === 25 || date === 31) {
+        if (date === 24 || date === 31) {
             liTag.className = 'day holiday';
             liTag.innerHTML = date;
             daysId.appendChild(liTag);
         } else if (date === 4 || date === 11 || date === 18 || date === 25) {
             liTag.className = 'day friday';
+            liTag.innerHTML = date;
+            daysId.appendChild(liTag);
+        } else if (date === 25) {
+            liTag.className = 'day holiday friday';
             liTag.innerHTML = date;
             daysId.appendChild(liTag);
         } else {
@@ -60,14 +64,41 @@ function clickHolidays() {
         for (let index = 0; index < holiday.length; index += 1) {
             if (holiday[index].style.backgroundColor === 'rgb(5, 212, 5)') {
                 holiday[index].style.backgroundColor = 'rgb(238,238,238';
-                holiday[index].style.border = 'none';
                 holiday[index].style.color = '#666';
             } else {
                 holiday[index].style.backgroundColor = 'rgb(5, 212, 5)';
-                holiday[index].style.border = '2px solid black';
                 holiday[index].style.color = 'black';
             }
         }
     });
 }
 clickHolidays();
+
+// Exerrcício 04
+function createButtonFriday(string) {
+    const buttonContainer = document.querySelector('.buttons-container');
+    const buttonFriday = document.createElement('button');
+        buttonFriday.innerHTML = string;
+        buttonFriday.id = 'btn-friday';
+        buttonContainer.appendChild(buttonFriday);
+}
+
+createButtonFriday('Sexta-Feira');
+
+// Exercício 05
+function clickFriday() {
+    const fridayDays = [ 4, 11, 18, 25];
+    const buttonFriday = document.getElementById('btn-friday');
+    buttonFriday.addEventListener('click', function() {
+        const friday = document.getElementsByClassName('friday');
+        for (let index = 0; index < friday.length; index += 1) {
+            if (friday[index].innerHTML !== 'SEXTOU!') {
+                friday[index].innerHTML = 'SEXTOU!';
+            } else {
+                friday[index].innerHTML = fridayDays[index];
+            }
+        }
+    });
+}
+
+clickFriday();
