@@ -102,3 +102,31 @@ function clickFriday() {
 }
 
 clickFriday();
+
+// Exercício 06
+function mouseEnterDay() {
+    const days = document.querySelectorAll('.day');
+    function mouseEnter(e) {
+        e.target.style.fontSize = '30px';        
+    }
+    for (let index = 0; index < days.length; index += 1) {
+        if (days[index].style.fontSize !== '30px')
+        days[index].addEventListener('mouseenter', mouseEnter, false);
+    }
+}
+
+mouseEnterDay();
+
+function mouseLeave() {
+    const days = document.querySelectorAll('.day');
+    function mouseLeave(e) {
+        e.target.style.fontSize = '20px';       
+    }
+    for (let index = 0; index < days.length; index += 1) {
+        if (days[index].style.fontSize !== '20px') {
+            days[index].addEventListener('mouseleave', mouseLeave, false); 
+        }
+    }
+}
+
+mouseLeave();
