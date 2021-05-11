@@ -70,23 +70,24 @@ footer {
 
 footer div{
     display: inline-block;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: center;
 }
 
 footer h5 {
+    font-weight: bold;
     font-size: 14px;
-    margin-left: 30px;
+    text-align: center;
+    margin-left: 28px;
 }
 
 footer li {
     list-style: none;
     font-size: 14px;
-    text-align: left;
+    text-align: center;
 }
 
 footer li:hover {
-    font-size: 18px;
-    font-weight: bold;
     text-decoration: underline;
 }
