@@ -91,6 +91,7 @@ legend {
 
 textarea {
   resize: none;
+  width: 80%;
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 7px;
