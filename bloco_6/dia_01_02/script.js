@@ -1,7 +1,3 @@
-let picker = new Pikaday({
-    field: document.getElementById('datepicker'),
-    format: 'DD/MM/YYYY',
-});
 const initialDate = document.querySelector('#datepicker');
 // Adiciona estados dinamicamente ao campo de estados do form
 const states = ["Escolha..." , "Acre" , "Alagoas" , "Amapá" , "Amazonas" , "Bahia" , "Ceará" , "Distrito Federal" , "Espírito Santo" , "Goiás" , "Maranhão" , "Mato Grosso" , "Mato Grosso do Sul" , "Minas Gerais" , "Pará" , "Paraíba" , "Paraná" , "Pernambuco" , "Piauí" , "Rio de Janeiro" , "Rio Grande do Norte" , "Rio Grande do Sul" , "Rondônia" , "Roraima" , "Santa Catarina" , "São Paulo" , "Sergipe" , "Tocantins"];
@@ -13,6 +9,17 @@ for (let index = 0; index < states.length; index += 1) {
     document.getElementById('select-state').appendChild(option);
 }
 // Validadores:
+const picker = new Pikaday({
+field: document.getElementById('datepicker'),
+format: 'DD/MM/YYYY',
+i18n: {
+    previousMonth : 'Mês Anterior',
+    nextMonth     : 'Próximo Mês',
+    months        : ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    weekdays      : ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+    weekdaysShort : ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb']
+},
+});
 function nameValidate() {
     const inputName = document.querySelector('#full-name');
     const fullName = inputName.value
