@@ -1,24 +1,8 @@
 let picker = new Pikaday({
     field: document.getElementById('datepicker'),
-    format: 'DD/MMM/YYYY',
-    toString(date, format) {
-        // você deve fazer a formatação com base no formato passado, 
-        // mas retornaremos apenas 'DD/MM/AAAA' para simplificar 
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
-    },
-    parse(dateString, format) {
-        // dateString é o resultado do método `toString`
-        const parts = dateString.split('/');
-        const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10) - 1;
-        const year = parseInt(parts[2], 10);
-        return new Date(year, month, day);
-    }
+    format: 'DD/MM/YYYY',
 });
-const initialDate = document.querySelector('#initial-date');
+const initialDate = document.querySelector('#datepicker');
 // Adiciona estados dinamicamente ao campo de estados do form
 const states = ["Escolha..." , "Acre" , "Alagoas" , "Amapá" , "Amazonas" , "Bahia" , "Ceará" , "Distrito Federal" , "Espírito Santo" , "Goiás" , "Maranhão" , "Mato Grosso" , "Mato Grosso do Sul" , "Minas Gerais" , "Pará" , "Paraíba" , "Paraná" , "Pernambuco" , "Piauí" , "Rio de Janeiro" , "Rio Grande do Norte" , "Rio Grande do Sul" , "Rondônia" , "Roraima" , "Santa Catarina" , "São Paulo" , "Sergipe" , "Tocantins"];
 for (let index = 0; index < states.length; index += 1) {
