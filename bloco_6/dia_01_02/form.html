@@ -12,24 +12,24 @@
 <body class="p-3 mb-2 bg-secondary text-white">
     <h1 class="p-3 mb-2 bg-light bg-gradient text-dark border border-2 rounded text-center">Currículo</h1>
     <section class="p-3 mb-2 bg-light bg-gradient text-dark border border-2 rounded">
-        <form class="row g-4" action="" method="get">
+        <form class="row g-4" action="" id="form" method="get">
             <p class="fs-4">Informações Pessoais:</p>
             <div class="col-md-6">
                 <label for="name" class="form-label">Nome</label>
-                    <input autocapitalize="words" type="text" class="form-control" autocomplete="off" data-validate-field="name" name="name" id="name" placeholder="ex: João da Silva Sauro" maxlength="40" required>
+                    <input autocapitalize="words" type="text" class="form-control" autocomplete="off" name="name" id="name" placeholder="ex: João da Silva Sauro" required>
             </div>
             <div class="col-md-6">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="ex: joao@silva.sauro.br" autocomplete="off" data-validate-field="email" maxlength="50" required>
+                <input type="text" class="form-control" name="email" id="email" placeholder="ex: joao@silva.sauro.br" autocomplete="off" required>
             </div>    
             <div class="col-md-4">
                 <label for="input-cpf" class="form-label">CPF</label>
-                <input type="text" class="form-control" name="cpf" id="input-cpf" placeholder="ex: 12345678910" maxlength="11" required>
+                <input type="text" class="form-control" name="cpf" id="input-cpf" placeholder="ex: 12345678910" required>
             </div>
             <div class="row g-3">
                 <div class="col-md-4">
                     <label for="input-address" class="form-label">Endereço</label>
-                    <input type="text" class="form-control" name="endereço" id="input-address" placeholder="ex: Rua Costa, 171, Bairro do Fim" maxlength="200" required>
+                    <input type="text" class="form-control" name="endereço" id="input-address" placeholder="ex: Rua Costa, 171, Bairro do Fim" required>
                 </div>
                 <div class="col-sm"><p>Residencia:</p>
                     <div class="form-check-inline">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-sm">
                     <label for="input-city" class="form-label">Cidade</label><br>
-                    <input type="text" class="form-control" name="cidade" id="input-city" placeholder="ex: New Iguaçu" maxlength="200" required>
+                    <input type="text" class="form-control" name="cidade" id="input-city" placeholder="ex: New Iguaçu" required>
                 </div>
                 <div class="col-sm">
                     <label for="select-state" class="form-label">Estado</label><br>
@@ -53,12 +53,17 @@
             <p class="fs-4">Dados do Último Emprego:</p>
             <div class="mb-3">
                 <label for="curriculum-summary" class="form-label"><p>Resumo do currículo</p>
-                    <textarea autocapitalize="sentences" wrap="soft" spellcheck="true" name="resumo-curriculo" class="form-control" id="curriculum-summary" cols="60" rows="10" placeholder="Digite no máximo 1000 caracteres incluindo os espaços" maxlength="1000" required></textarea>
+                    <textarea autocapitalize="sentences" wrap="soft" spellcheck="true" name="resumo-curriculo" class="form-control" id="curriculum-summary" cols="60" rows="10" placeholder="Digite no máximo 1000 caracteres incluindo os espaços" required></textarea>
                 </label>            
             </div>
             <div class="col-md-4">
                 <label for="input-office" class="form-label">Cargo</label>
                 <input type="text" class="form-control" name="cargo" id="input-office" placeholder="ex: Secretário Executivo" required>
+            </div>
+            <div class="mb-3">
+                <label for="job-description" class="form-label"><p>Descrição do cargo</p>
+                    <textarea autocapitalize="sentences" wrap="soft" spellcheck="true" name="resumo-curriculo" class="form-control" id="job-description" cols="30" rows="10" placeholder="Digite no máximo 500 caracteres incluindo os espaços" required></textarea>
+                </label>            
             </div>
             <div class="col-md-4">
                 <label for="datepicker" class="form-label">Data de início</label>
