@@ -8,7 +8,7 @@
 
 ## Para me encontrar acesse:
 
-* LinkedIn: <https://www.linkedin.com/in/diogo-santanna/>
-* Email: <diogo.santanna@outlook.com.br>
-* Link pra portfólio online: <https://dihsantanna.github.io/>
-* Repositório de projetos realizados na Trybe: <https://github.com/dihsantanna/trybe-projects>
+* [LinkedIn](https://www.linkedin.com/in/diogo-santanna/);
+* [Email](diogo.santanna@outlook.com.br);
+* [Portfólio online](https://dihsantanna.github.io/);
+* [Repositório de projetos realizados na Trybe](https://github.com/dihsantanna/trybe-projects).
