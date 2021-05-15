@@ -1,9 +1,12 @@
-Exercícios e projetos diversos desde meu inicio como aluno da Trybe.
+# Diogo dos Santos Sant'Anna.
+# Estudante de Desenvolvimento web na Trybe
 
-O arquivo trybe-skills.txt contém as habilidades ensinadas pela trybe até o momento.
+Diariamente aplico toda a metodologia de ensino da trybe como soft skills e hard skills. Habilidades estas necessárias para o crescimento da pessoa desenvolvedora.
 
-Toda a minha evolução como programador será mostrada aqui.
+Neste repositório serão guardados todos os exercícios de hard skills desenvolvidos durante o curso da Trybe.
 
-Ao infinito e alem!!!
-
- # * * * * * * * * * * * * * * // * * * * * * * * * * * * * * * #
+Para me encontrar nas redes acesse: 
+LinkedIn: https://www.linkedin.com/in/diogo-santanna/
+Email: diogo.santanna@outlook.com.br
+Link pra portfólio online: https://dihsantanna.github.io/
+Repositório de projetos realizados na Trybe: https://github.com/dihsantanna/trybe-projects
