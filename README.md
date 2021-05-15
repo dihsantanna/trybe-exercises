@@ -1,6 +1,6 @@
 # Diogo dos Santos Sant'Anna
 
-# Estudante de Desenvolvimento web na Trybe
+> Estudante de Desenvolvimento web na Trybe
 
 Diariamente aplico toda a metodologia de ensino da trybe como soft skills e hard skills. Habilidades estas necessárias para o crescimento da pessoa desenvolvedora.
 
