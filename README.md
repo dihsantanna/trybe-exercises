@@ -3,7 +3,8 @@
 ## Estudante de Desenvolvimento web na Trybe :rocket:
 
 > Diariamente aplico toda a metodologia de ensino da trybe como soft skills e hard skills. Habilidades estas necessárias para o crescimento da pessoa desenvolvedora.
-> Neste repositório serão guardados todos os exercícios de hard skills desenvolvidos durante o curso da Trybe.
+
+*Neste repositório serão guardados todos os exercícios de hard skills desenvolvidos durante o curso da Trybe.*
 
 ## Para me encontrar acesse:
 
