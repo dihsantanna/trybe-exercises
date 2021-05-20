@@ -22,3 +22,5 @@ const turnoManha = (obj, chave, valor) => {
     return obj[chave] = valor;
 }
 turnoManha(lesson2, 'turno', 'manhã');
+// Exercício 02
+const listKey = obj => Object.keys(obj);
