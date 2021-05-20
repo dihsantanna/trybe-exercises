@@ -35,4 +35,7 @@ const numberStudents = obj => `Número de Estudantes por aula:
 - Aula-1: ${obj.lesson1.numeroEstudantes};
 - Aula-2: ${obj.lesson2.numeroEstudantes};
 - Aula-3: ${obj.lesson3.numeroEstudantes}.`;
-console.log(numberStudents(allLessons));
+numberStudents(allLessons);
+// Exercício 07
+const getValueByNumber = (obj, num) => Object.values(obj)[num];
+getValueByNumber(lesson1, 0);
