@@ -26,4 +26,7 @@ turnoManha(lesson2, 'turno', 'manhã');
 const listKey = obj => Object.keys(obj);
 // Exercício 03
 const objLength = obj => listKey(obj).length;
-console.log(objLength(lesson2));
+// Exercício 04
+const listValues = obj => Object.values(obj);
+// Exercício 05
+const allLessons = Object.assign({lesson1, lesson2, lesson3});
