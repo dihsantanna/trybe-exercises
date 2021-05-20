@@ -39,3 +39,7 @@ numberStudents(allLessons);
 // Exercício 07
 const getValueByNumber = (obj, num) => Object.values(obj)[num];
 getValueByNumber(lesson1, 0);
+// Exercício 08
+const verifyPair = (obj, key, value) => obj[key] === value ? true : false;
+console.log(verifyPair(lesson3, 'turno', 'noite'));
+console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
