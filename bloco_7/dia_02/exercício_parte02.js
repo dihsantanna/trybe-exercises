@@ -30,3 +30,9 @@ const objLength = obj => listKey(obj).length;
 const listValues = obj => Object.values(obj);
 // Exercício 05
 const allLessons = Object.assign({lesson1, lesson2, lesson3});
+// Exercício 06
+const numberStudents = obj => `Número de Estudantes por aula:
+- Aula-1: ${obj.lesson1.numeroEstudantes};
+- Aula-2: ${obj.lesson2.numeroEstudantes};
+- Aula-3: ${obj.lesson3.numeroEstudantes}.`;
+console.log(numberStudents(allLessons));
