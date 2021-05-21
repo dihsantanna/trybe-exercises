@@ -6,18 +6,18 @@ const lesson1 = {
     turno: 'manhã',
   };
   
-  const lesson2 = {
-    materia: 'História',
-    numeroEstudantes: 20,
-    professor: 'Carlos',
-  };
-  
-  const lesson3 = {
-    materia: 'Matemática',
-    numeroEstudantes: 10,
-    professor: 'Maria Clara',
-    turno: 'noite',
-  };
+const lesson2 = {
+  materia: 'História',
+  numeroEstudantes: 20,
+  professor: 'Carlos',
+};
+
+const lesson3 = {
+  materia: 'Matemática',
+  numeroEstudantes: 10,
+  professor: 'Maria Clara',
+  turno: 'noite',
+};
 const turnoManha = (obj, chave, valor) => {
     return obj[chave] = valor;
 }
