@@ -20,3 +20,21 @@ const allLessons = {
 };
 // Exercício 01
 const presenceMath = obj => obj.lesson1.numeroEstudantes + obj.lesson3.numeroEstudantes;
+// Exercício 02
+const createReport = (obj, professor) => {
+    const report = {
+        professor: professor,
+        aulas: [],
+        estudantes: 0,
+    }
+    for (const key in obj) {
+        if (obj[key].professor === professor) {
+            report['aulas'].push(obj[key].materia);
+            report.estudantes += obj[key].numeroEstudantes;
+        };
+    };
+    if (report.aulas.length === 0) {
+        return `Professor(a) ${professor} não deu aula.`
+    }
+    return report;
+}
