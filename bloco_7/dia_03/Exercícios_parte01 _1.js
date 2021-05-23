@@ -9,6 +9,7 @@ function sum(a, b) {
   return a + b;
 }
 
+// implemente seus testes aqui
 assert.strictEqual(typeof sum, 'function');
 assert.strictEqual(sum(4, 5), 9, '4 + 5 = 9');
 assert.strictEqual(sum(0, 0), 0, '0 + 0 = 0');
