@@ -26,8 +26,9 @@ const mage = {
 
 //  O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo strength (dano máximo).
 const dragonDamage = () => {
+    const minDamage = 15;
     const maxDamage = dragon.strength;
-    const damage = Math.ceil(Math.random() * (maxDamage - 15) + 15);
+    const damage = Math.ceil(Math.random() * (maxDamage - minDamage) + minDamage);
     return damage;
 }
 
@@ -44,3 +45,27 @@ const warriorDamage = () => {
 }
 
 // console.log(warriorDamage());
+
+// 3 - Crie uma função que retorna um objeto com duas chaves e dois valores contendo o dano e a mana gasta pelo mago em um turno.
+
+// O dano será um número aleatório entre o valor do atributo intelligence (dano mínimo) e o valor de intelligence * 2 (dano máximo).
+
+// A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
+
+const mageTurn = () => {
+    const minDamage = mage.intelligence;
+    const maxDamage = minDamage * 2;
+    const damage = Math.ceil(Math.random() * (maxDamage - minDamage) + minDamage);
+    const attackAction = {
+        damage: damage,
+    }
+    if (mage.mana < 15) {
+        attackAction.damage = "Não possui mana suficiente";
+        attackAction.manaConsumption = 0;
+        return attackAction;
+    }
+    return attackAction;
+}
+
+// console.log(mageTurn());
+
