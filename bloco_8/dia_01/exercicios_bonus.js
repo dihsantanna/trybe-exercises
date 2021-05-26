@@ -1,3 +1,5 @@
+// Parte I
+
 // Nestes exercícios você irá implementar HOFs que simulam um turno de batalha em um jogo. Você irá criar funções que calculam dano, atualizam status, e ao final, retornam os resultados da rodada.
 
 const mage = {
@@ -52,20 +54,60 @@ const warriorDamage = () => {
 
 // A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 
-const mageTurn = () => {
+const mageDamage = () => {
     const minDamage = mage.intelligence;
     const maxDamage = minDamage * 2;
     const damage = Math.ceil(Math.random() * (maxDamage - minDamage) + minDamage);
     const attackAction = {
         damage: damage,
+        manaConsumption: 15,
     }
     if (mage.mana < 15) {
-        attackAction.damage = "Não possui mana suficiente";
+        attackAction.damage = "Mago não possui mana suficiente, dano igual a zero";
         attackAction.manaConsumption = 0;
         return attackAction;
     }
     return attackAction;
 }
 
-// console.log(mageTurn());
+// console.log(mageDamage());
+
+// Parte II
+
+// Agora que você já possui a implementação das funções relativas aos três exercícios anteriores, passe-as como parâmetro para outras funções que irão compor um objeto gameActions . O objeto será composto por ações do jogo e cada ação é por denifição uma HOF , pois neste caso, são funções que recebem como parâmetro outra função.
+
+// 1 - Crie a primeira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem warrior . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo personagem warrior e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor da chave damage do warrior .
+
+// 2 - Crie a segunda HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem mage . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo personagem mage e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor das chaves damage e mana do mage.
+
+// 3 - Crie a terceira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do monstro dragon . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo monstro dragon e atualizará os healthPoints dos personagens mage e warrior . Além disto ela também deve atualizar o valor da chave damage do monstro.
+
+// 4 - Adicione ao objeto gameActions uma função que retorne o objeto battleMembers atualizado e faça um console.log para visualizar o resultado final do turno.
+
+const gameActions = ({
+    // Crie as HOFs neste objeto.
+    warriorTurn: (callback) => {
+        dragon.healthPoints -= callback();
+        warrior.damage = callback();
+    },
+    mageTurn: (callback) => {
+        if (typeof callback().damage !== 'number') {
+            mage.damage = callback().damage; 
+        } else {
+            dragon.healthPoints -= callback().damage;
+            mage.damage = callback().damage;
+            mage.mana -= callback().manaConsumption
+        }
+    },
+    dragonTurn: (callback) => {
+        warrior.healthPoints -= callback();
+        mage.healthPoints -= callback();
+        dragon.damage = callback();
+    },
+    resultTurn: () => {
+        return battleMembers;
+    }
+});
+
+console.log(gameActions.resultTurn());
 
