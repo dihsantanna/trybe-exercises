@@ -5,7 +5,12 @@ const books = require('./books');
 const expectedResult = 43;
 
 function averageAge() {
-  // escreva seu código aqui
+  const totalAge = books.reduce((acc, books) => {
+    const age = books.releaseYear - books.author.birthYear;
+    acc += age;
+    return acc;
+  }, 0)
+  return totalAge / books.length;
 }
 
 assert.strictEqual(averageAge(), expectedResult);
