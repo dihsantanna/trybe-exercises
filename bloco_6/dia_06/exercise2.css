@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+header {
+  background-color: darkmagenta;
+  color: yellow;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  font-weight: 600;
+  border-bottom: black solid 1px;
+  border-radius: 3px;
+}
+
+header p {
+  text-align: center;
+  font-size: 19px;
+}
+
+header ul {
+  font-size: 16px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+header li {
+  margin: 3px;
+}
