@@ -8,9 +8,15 @@ html {
 
 * {
   margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 header {
+  height: 60px;
   position: fixed;
   background-color: darkmagenta;
   color: yellow;
@@ -25,15 +31,40 @@ header {
 }
 
 header p {
+  width: 150px;
   text-align: center;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 header ul {
   padding: 0;
   font-size: 16px;
-  list-style: none;
   display: flex;
   justify-content: space-between;
   gap: 5px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.aside-one {
+  padding-top: 70px;
+  margin: 10px;
+}
+
+.aside-one ul {
+  margin: 10px 20px;
+  line-height: 1.3em;
+  font-size: 18px;
+}
+
+.aside-two {
+  margin: 20px 10px;
+}
+
+.aside-two ul {
+  font-size: 18px;
+  margin: 10px 20px;
+  line-height: 1.4em;
 }
