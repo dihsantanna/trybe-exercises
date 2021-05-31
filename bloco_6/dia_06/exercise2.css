@@ -33,6 +33,7 @@ header {
 
 header p {
   text-align: left;
+  margin-right: 30px;
 }
 
 header ul {
@@ -109,4 +110,70 @@ footer p {
   header ul {
     gap: 1em;
   }
+}
+
+@media screen and (min-width: 1200px) {
+  * {
+    max-width: 1366px;
+  }
+
+  header {
+    padding: 10px 30px;
+    max-width: 100vw;
+  }
+
+  header p {
+    font-size: xx-large;
+  }
+
+  header ul {
+    gap: 2em;
+  }
+
+  header li {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  header li:hover {
+    opacity: 1;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    order: 1;
+    max-width: 68%;
+    margin-top: 90px;
+  }
+
+  .main-content p {
+    font-size: 20px;
+  }
+
+  .aside-content {
+    order: 2;
+    margin-top: 90px;
+    height: 550px;
+    border: solid 2px black;
+    border-radius: 10px;
+    margin-left: 25px;
+  }
+
+  .aside-one {
+    padding-top: 20px;
+  }
+
+  footer {
+    order: 3;
+    min-width: 100vw;
+  }
+
+  footer p {
+    font-size: 16px;
+  }
+
 }
