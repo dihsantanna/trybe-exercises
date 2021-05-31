@@ -5,6 +5,7 @@
 const assert = require('assert');
 
 // escreva sum abaixo
+const sum = (...rest) => rest.reduce((result, number) => (result += number), 0);
 
 assert.strictEqual(sum(), 0);
 assert.strictEqual(sum(1), 1);
