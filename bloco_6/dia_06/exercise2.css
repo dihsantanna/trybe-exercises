@@ -28,17 +28,15 @@ header {
   font-weight: 600;
   border-bottom: black solid 1px;
   border-radius: 3px;
+  font-size: 18px;
 }
 
 header p {
-  width: 150px;
-  text-align: center;
-  font-size: 18px;
+  text-align: left;
 }
 
 header ul {
   padding: 0;
-  font-size: 16px;
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -50,7 +48,7 @@ h2 {
 
 .aside-one {
   padding-top: 70px;
-  margin: 10px;
+  margin: 0 10px 10px 10px;
 }
 
 .aside-one ul {
@@ -64,7 +62,41 @@ h2 {
 }
 
 .aside-two ul {
-  font-size: 18px;
   margin: 10px 20px;
   line-height: 1.4em;
+}
+
+.main-content {
+  margin: 10px 5px;
+  padding: 0px 20px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.main-content h1 {
+  text-align: center;
+}
+
+.main-content p {
+  font-size: 18px;
+  margin: 20px 0;
+  text-align: justify;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+footer p {
+  margin: 5px 0px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 800px) {
+  
 }
