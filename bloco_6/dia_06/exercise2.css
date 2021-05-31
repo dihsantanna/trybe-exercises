@@ -97,6 +97,16 @@ footer p {
   font-size: 14px;
 }
 
-@media screen and (min-width: 800px) {
-  
+@media screen and (min-width: 700px) {
+  header {
+    padding: 20px;
+  }
+
+  header p {
+    font-size: 25px;
+  }
+
+  header ul {
+    gap: 1em;
+  }
 }
