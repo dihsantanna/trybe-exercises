@@ -15,6 +15,7 @@ const promise = new Promise((resolve, reject) => {
     console.log(divPor(num, [2, 3, 5, 10]));
     return divPor(num, [2, 3, 5, 10]);
 })
+.then((arr) => console.log((arr.reduce((acc, num) => (acc + num)).toFixed(2))))
 .catch(() => {
     console.log('Promise rejeitada');
     console.log('É mais de oito mil! Essa promise deve estar quebrada!');

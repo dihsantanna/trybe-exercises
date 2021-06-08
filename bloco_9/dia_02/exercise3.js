@@ -15,4 +15,4 @@ const promise = new Promise((resolve, reject) => {
     console.log(divPor(num, [2, 3, 5, 10]));
     return divPor(num, [2, 3, 5, 10]);
 })
-.catch((error) => console.log('Promise rejeitada'));
+.catch(() => console.log('Promise rejeitada'));

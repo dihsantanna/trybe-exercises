@@ -9,4 +9,4 @@ const promise = new Promise((resolve, reject) => {
     (sumArr < 8000) ? resolve() : reject();
 })
 .then(() => console.log('Promise resolvida'))
-.catch((error) => console.log('Promise rejeitada'));
+.catch(() => console.log('Promise rejeitada'));
