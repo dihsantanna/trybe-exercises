@@ -1,3 +1,5 @@
+const divPor = (dividendo, arrDivisores) => arrDivisores.map((divisor) => (dividendo / divisor));
+
 const promise = new Promise((resolve, reject) => {
     const arr = [];
         for (let index = 0; index < 10; index += 1) {
@@ -5,8 +7,13 @@ const promise = new Promise((resolve, reject) => {
             arr.push(Math.pow(num, 2));
         }
     const sumArr = arr.reduce((acc, num) => (acc + num))
-    // console.log(sumArr);
-    (sumArr < 8000) ? resolve() : reject();
+    console.log(sumArr);
+    (sumArr < 8000) ? resolve(sumArr) : reject();
 })
-.then(() => console.log('Promise resolvida'))
+.then((num) => {
+    console.log('Promise resolvida');
+    console.log(divPor(num, [2, 3, 5, 10]));
+    return divPor(num, [2, 3, 5, 10]);
+})
 .catch((error) => console.log('Promise rejeitada'));
+
