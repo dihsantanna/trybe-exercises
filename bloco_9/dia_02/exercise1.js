@@ -2,7 +2,7 @@
 const API_URL = 'https://icanhazdadjoke.com/';
 
 
-const addJoker = (obj) => {
+const addJoke = (obj) => {
     const jokeContainer = document.querySelector('#jokeContainer');
     jokeContainer.innerHTML = obj.joke;
 }
@@ -14,7 +14,7 @@ const fetchJoke = () => {
     
    fetch(API_URL, myObject)
     .then((response) => response.json())
-    .then((joke) => addJoker(joke));    
+    .then((joke) => addJoke(joke));    
 };
 
 window.onload = () => fetchJoke();
