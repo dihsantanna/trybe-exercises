@@ -1,25 +1,28 @@
 // Exercício 03
-const assert = require('assert');
-
-function myRemoveWithoutCopy(arr, item) {
-  for (let index = 0, len = arr.length; index < len; index += 1) {
-    if (arr[index] === item) {
-      arr.splice(index, 1);
-      index -= 1;
-      len -= 1;
-    }
-  }
-
-  return arr;
-}
+const myRemoveWithoutCopy = require('../Exercícios_parte01 _3')
+const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui
-assert.deepStrictEqual(typeof myRemoveWithoutCopy, 'function');
-assert.deepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 3), [1, 2, 4]);
-assert.notDeepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 3), [1, 2, 3, 4]);
+describe('Exercício 02 Parte 01', () => {
+  it('myRemoveWithoutCopy deve ser uma função', () => {
+    expect(typeof myRemoveWithoutCopy).toBe('function');
+  });
+  
+  it('Chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) retorne [1, 2, 4]', () => {
+    expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).toEqual([1, 2, 4]);
+  });
 
-const myArr = [10, 9, 8, 7];
-myRemoveWithoutCopy(myArr, 9);
+  it('Chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) NÃO retorne [1, 2, 3, 4]', () => {
+    expect(myRemoveWithoutCopy([1, 2, 3, 4], 3)).not.toEqual([1, 2, 3, 4]);
+  });
 
-assert.notDeepStrictEqual(myArr, [10, 9, 8, 7]);
-assert.deepStrictEqual(myRemoveWithoutCopy([1, 2, 3, 4], 5), [1, 2, 3, 4]);
+  it('myRemoveWithoutCopy deve modificar o array inserido como parâmetro', () => {
+    const myArr = [10, 9, 8, 7];
+    myRemoveWithoutCopy(myArr, 9);
+    expect(myArr).not.toEqual([10, 9, 8, 7]);
+  });
+
+  it('Chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorne [1, 2, 3, 4]', () => {
+    expect(myRemoveWithoutCopy([1, 2, 3, 4], 5)).toEqual([1, 2, 3, 4])
+  })
+})

@@ -1,5 +1,6 @@
 // Exercício 02
 const myRemove = require('../Exercícios_parte01 _2');
+const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui
 describe('Exercício 02 Parte 01', () => {

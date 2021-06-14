@@ -2,9 +2,9 @@
   "name": "dia_01",
   "version": "1.0.0",
   "description": "",
-  "main": "Exercícios_parte01 _1.js",
+  "main": "",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
