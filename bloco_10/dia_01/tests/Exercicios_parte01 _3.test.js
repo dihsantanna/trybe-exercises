@@ -3,7 +3,7 @@ const myRemoveWithoutCopy = require('../Exercícios_parte01 _3')
 const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui
-describe('Exercício 02 Parte 01', () => {
+describe('Exercício 03 Parte 01', () => {
   it('myRemoveWithoutCopy deve ser uma função', () => {
     expect(typeof myRemoveWithoutCopy).toBe('function');
   });

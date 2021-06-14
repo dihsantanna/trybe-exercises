@@ -1,5 +1,4 @@
 // Exercício 04
-const assert = require('assert');
 
 function myFizzBuzz(num) {
   if (typeof num !== 'number') return false;
@@ -9,10 +8,4 @@ function myFizzBuzz(num) {
   return num;
 }
 
-// implemente seus testes aqui
-assert.strictEqual(typeof myFizzBuzz, 'function');
-assert.strictEqual(myFizzBuzz(15), 'fizzbuzz');
-assert.strictEqual(myFizzBuzz(3), 'fizz');
-assert.strictEqual(myFizzBuzz(5), 'buzz');
-assert.strictEqual(myFizzBuzz(2), 2);
-assert.strictEqual(myFizzBuzz('5'), false);
+module.exports = myFizzBuzz;
