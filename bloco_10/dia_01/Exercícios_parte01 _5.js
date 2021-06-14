@@ -1,5 +1,4 @@
 // Exercício 05
-const assert = require('assert');
 
 const obj1 = {
   title: 'My Title',
@@ -16,5 +15,8 @@ const obj3 = {
   description: 'My Description',
 };
 
-// implemente seus testes aqui
-assert.deepStrictEqual(obj1, obj2);
+module.exports = {
+  obj1,
+  obj2,
+  obj3
+};

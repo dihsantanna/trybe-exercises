@@ -1,20 +1,10 @@
 // Exercício 05
-const assert = require('assert');
-
-const obj1 = {
-  title: 'My Title',
-  description: 'My Description',
-};
-
-const obj2 = {
-  description: 'My Description',
-  title: 'My Title',
-};
-
-const obj3 = {
-  title: 'My Different Title',
-  description: 'My Description',
-};
+const {obj1, obj2} = require('../Exercícios_parte01 _5')
+const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui
-assert.deepStrictEqual(obj1, obj2);
+describe('Exercício 04 Parte 01', () => {
+  it('obj1 deve ser igual obj2', () => {
+    expect(obj1).toEqual(obj2)
+  });
+})
