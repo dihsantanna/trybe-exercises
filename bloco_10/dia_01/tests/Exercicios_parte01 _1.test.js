@@ -1,5 +1,5 @@
 // Exercício 01
-const sum = require('../Exercícios_parte01 _1');
+const sum = require('../Exercícios_parte01_1');
 
 // implemente seus testes aqui
 describe('Exercício 01 Parte 01', () => {

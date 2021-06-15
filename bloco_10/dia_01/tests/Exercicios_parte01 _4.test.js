@@ -1,5 +1,5 @@
 // Exercício 04
-const myFizzBuzz = require('../Exercícios_parte01 _4')
+const myFizzBuzz = require('../Exercícios_parte01_4')
 const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui

@@ -1,5 +1,5 @@
 // Exercício 03
-const myRemoveWithoutCopy = require('../Exercícios_parte01 _3')
+const myRemoveWithoutCopy = require('../Exercícios_parte01_3')
 const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui

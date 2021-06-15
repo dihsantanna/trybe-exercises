@@ -1,5 +1,5 @@
 // Exercício 05
-const {obj1, obj2} = require('../Exercícios_parte01 _5')
+const {obj1, obj2} = require('../Exercícios_parte01_5')
 const { it, expect, describe } = require('@jest/globals');
 
 // implemente seus testes aqui
