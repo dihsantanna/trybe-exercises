@@ -1,15 +1,20 @@
 {
-  "name": "dia_02",
+  "name": "trybe-exercises",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Estudante de Desenvolvimento web na Trybe :rocket:",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dihsantanna/trybe-exercises.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "jest": "^27.0.4"
-  }
+  "bugs": {
+    "url": "https://github.com/dihsantanna/trybe-exercises/issues"
+  },
+  "homepage": "https://github.com/dihsantanna/trybe-exercises#readme"
 }
