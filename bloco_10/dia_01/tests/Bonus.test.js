@@ -1,4 +1,4 @@
-const { searchEmployee, professionalBoard } = require('../Bonus');
+const { searchEmployee } = require('../Bonus');
 const { it, describe, expect } = require('@jest/globals');
 
 describe('Exercício Bônus', () => {
