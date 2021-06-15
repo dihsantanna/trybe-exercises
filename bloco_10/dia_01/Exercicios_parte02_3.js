@@ -4,9 +4,7 @@ const hydrate = (drinks) => {
       glassesWater += parseInt(amountDrinks, 0);
       return glassesWater;
     }, 0);
-    if (amountGlasses === 1) {
-      return `${amountGlasses} copo de água`;
-    }
+    if (amountGlasses === 1) return `${amountGlasses} copo de água`;
     return `${amountGlasses} copos de água`;
   };
 
