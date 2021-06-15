@@ -1,6 +1,6 @@
 const users = {
     4: { name: 'Mark' },
-    4: { name: 'Paul' }
+    5: { name: 'Paul' }
 };
     
 const findUserById = (id) => {
