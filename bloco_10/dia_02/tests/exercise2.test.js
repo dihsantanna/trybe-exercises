@@ -17,15 +17,11 @@ describe('Verifica a função getUserName', () => {
 
     it('Ao passar a id: 4 como parâmetro retorne "Mark"', () => {
         expect.assertions(1);
-        getUserName(4).then((response) => {
-            expect(response).toBe('Mark');
-        });
+        return expect(getUserName(4)).resolves.toBe('Mark');
     });
 
     it('Ao passar a id: 6 como parâmetro retorne o objeto { error: "User with 6 not found." }', () => {
         expect.assertions(1);
-        getUserName(6).catch((error) => {
-            expect(error).toStrictEqual({ error: "User with 6 not found." });
-        });
+        return expect(getUserName(6)).rejects.toEqual({ error: "User with 6 not found." });
     })
 })

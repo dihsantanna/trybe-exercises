@@ -14,16 +14,11 @@ describe('Verifica a função getUserName', () => {
     });
 
     it('Ao passar a id: 4 como parâmetro retorne "Mark"', async() => {
-        const response = await getUserName(4)
-        expect(response).toBe('Mark');
+        await expect(getUserName(4)).resolves.toBe('Mark');
     });
 
     it('Ao passar a id: 6 como parâmetro retorne o objeto { error: "User with 6 not found." }', async() => {
         expect.assertions(1);
-        try {
-           await getUserName(6);
-        } catch(error) {
-            expect(error).toStrictEqual({ error: "User with 6 not found." });
-        }
+        await expect(getUserName(6)).rejects.toEqual({ error: "User with 6 not found." });
     });
 })

@@ -26,5 +26,4 @@ describe('Verifica função getRepos', () => {
         const response = await getRepos(URL);
         expect(response.includes(memeGenerator)).toBe(true);
     });
-    
 })
