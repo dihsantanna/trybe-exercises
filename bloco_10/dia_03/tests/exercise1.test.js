@@ -1,13 +1,14 @@
-const exercise1 = require('../exercise1');
+const number = require('../number');
 const { describe, it, expect } = require('@jest/globals');
 
 describe('Testa função generateRandomNumber', () => {
     it('Verifica retorno, chamada e quantas vezes foi chamada', () => {
-        exercise1.generateRandomNumber = jest.fn()
+        number.generateRandomNumber = jest.fn()
             .mockReturnValue(10);
 
-        expect(exercise1.generateRandomNumber).toBeCalledTimes(0);
-        expect(exercise1.generateRandomNumber()).toBe(10);
-        expect(exercise1.generateRandomNumber).toBeCalledTimes(1);
+        expect(number.generateRandomNumber).toHaveBeenCalledTimes(0);
+        expect(number.generateRandomNumber()).toBe(10);
+        expect(number.generateRandomNumber).toHaveBeenCalled;
+        expect(number.generateRandomNumber).toHaveBeenCalledTimes(1);
     });
 })
