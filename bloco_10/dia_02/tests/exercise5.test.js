@@ -15,3 +15,11 @@ describe('Scoped / Nested block', () => {
 });
 
 // Após escrever o que imagina que será o resultado, execute os testes e veja se acertou.
+// 1 - beforeEach
+// 1 - test
+// 1 - afterEach
+// 1 - beforeEach
+// 2 - beforeEach
+// 2 - test
+// 2 - afterEach
+// 1 - afterEach
