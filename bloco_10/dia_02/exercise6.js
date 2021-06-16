@@ -25,22 +25,38 @@ const Animals = [
 
 //   Use como base para os exercícios a seguir:
 
-// 6.1 - Adicione uma funcionalidade para buscar pelo nome do animal - crie uma função que deverá passar no teste abaixo.
+// 6.1 - Adicione uma funcionalidade para buscar pelo nome do animal - crie uma função que deverá passar no teste.
 
 // Dica: use o código do exemplo dado para criar uma nova função, analise os testes antes de iniciar.
   
-const findAnimalByName = (name) => {
-// Adicione o código aqui.
-};
+const findAnimalByName = (name) => new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const ObjAnimals = Animals.find((animal) => (name === animal.name));
+
+        if (ObjAnimals) return resolve(ObjAnimals);
+
+        return reject('Nenhum animal com esse nome!');
+    }, 100)
+})
 
 const getAnimal = (name) => {
-    // Adicione o código aqui.
+    return findAnimalByName(name).then((list) => list);
 };
 
 //   6.2 - Adicione uma nova funcionalidade para buscar pela idade dos animais. O retorno deve ser um array de objetos, mas, caso não ache nenhum, retorne uma mensagem de erro. Escreva tanto a função como o seu teste.
 
+const findAnimalByAge = (age) => new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const arrayAnimals = Animals.filter((animal) => (animal.age === age));
+
+        if (arrayAnimals.length) return resolve(arrayAnimals);
+
+        return reject('Nenhum animal com essa idade!')
+    }, 100);
+})
+
 
 module.exports = {
-    findAnimalByName,
+    findAnimalByAge,
     getAnimal
 }
