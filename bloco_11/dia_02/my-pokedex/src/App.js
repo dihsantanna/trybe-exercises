@@ -1,9 +1,7 @@
-import './App.css';
+import Pokedex from './Pokedex';
 
 function App() {
-  return (
-    <div>pokemon</div>
-  );
+  return (<Pokedex />);
 }
 
 export default App;

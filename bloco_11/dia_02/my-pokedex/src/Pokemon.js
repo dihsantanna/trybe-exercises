@@ -3,18 +3,18 @@ import './App.css';
 
 class Pokemon extends Component {
     render() {
-        const { name, type, averageWeight, image } = this.props;
+        const pokeData = this.props;
 
         return (
             <div className="poke-contain">
 
                 <div className="poke-info">
-                    <span>{name}</span>
-                    <span>{type}</span>
-                    <span>Average Weight: {averageWeight.value} {averageWeight.measurementUnit}</span>
+                    <span>{pokeData.name}</span>
+                    <span>{pokeData.type}</span>
+                    <span>Average Weight: {pokeData.weight} {pokeData.unity}</span>
                 </div>
 
-                <img className="image-poke" src={image} alt={`image-${name}`}/>
+                <img className="image-poke" src={pokeData.src} alt={pokeData.alt}/>
                 
             </div>
         )
