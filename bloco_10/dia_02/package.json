@@ -1,0 +1,21 @@
+{
+  "name": "dia_02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercise1.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4"
+  }
+}
