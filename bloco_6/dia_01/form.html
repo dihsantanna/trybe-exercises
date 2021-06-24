@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Currículo</title>
+</head>
+<body>
+    <h1>Currículo</h1>
+    <form action="" method="get">
+        <section class="info-box">
+            <fieldset id="personal-info"><legend>Informações Pessoais</legend>
+                <label for="full-name"><p>Nome:</p>
+                    <input type="text" name="nome-completo" id="full-name" placeholder="Digite o seu nome Completo" maxlength="40" required>
+                </label>
+                <br>
+                <label for="input-email"><p>E-mail:</p>
+                    <input type="text" name="e-mail" id="input-email" placeholder="Digite o seu e-mail" maxlength="50" required>
+                </label>
+                <br>
+                <label for="input-cpf"><p>CPF:</p>
+                    <input type="text" name="cpf" id="input-cpf" placeholder="Digite o seu CPF" maxlength="11" required>
+                </label>
+                <br>
+                <label for="input-address"><p>Endereço:</p>
+                    <input type="text" name="endereço" id="input-address" placeholder="Digite o seu endereço" maxlength="200" required>
+                </label>
+                <p>Residencia:</p>
+                <label for="type-residence-1">
+                    <input type="radio" name="tipo-de-residencia" id="type-residence-1" value="Casa" required checked> Casa
+                </label>
+                <label for="type-residence-2">
+                    <input type="radio" name="tipo-de-residencia" id="type-residence-2" value="Apartamento" required> Apartamento
+                </label>
+                <br>
+                <label for="input-city"><p>Cidade:</p>
+                    <input type="text" name="cidade" id="input-city" placeholder="Digite o nome de sua cidade" maxlength="200" required>
+                </label>
+                <label for="select-state"><p>Estado:</p>
+                    <select name="estado" id="select-state" required></select>
+                </label>
+            </fieldset>
+        </section>
+        <section class="info-box">
+            <fieldset> <legend>Dados do Último Emprego</legend>
+                <label for="curriculum-summary"><p>Resumo do currículo:</p>
+                <textarea name="resumo-curriculo" id="curriculum-summary" cols="60" rows="15" placeholder="Digite no máximo 1000 caracteres incluindo os espaços" maxlength="1000" required></textarea>
+            </label>
+            <br>
+            <label for="input-office"><p>Cargo:</p>
+                <input type="text" name="cargo" id="input-office" placeholder="Digite o cargo aqui" required>
+            </label>
+            <label for="job-description"><p>Descrição do cargo</p>
+                <textarea name="descrição-do-cargo" id="job-description" cols="30" rows="10" placeholder="Digite no máximo 500 caracteres incluindo os espaços" required></textarea>
+            </label>  
+            <label for="initial-date"><p>Data de início:</p>
+                <input type="text" name="data-inicio" id="initial-date" placeholder="Formato dd/mm/aaaa" required>
+            </label>
+            </fieldset>
+            <button type="submit" id="button-submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </section>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

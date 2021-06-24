@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, sans-serif;
+  font-size: 17px;
+  background-color: rgb(225 , 225 , 225);
+  color: rgb(50 , 50 , 50);
+}
+
+h1 {
+  background-color: rgb(243 , 243 , 243);
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 35px;
+  border: 1px solid rgb(190 , 190 , 190);
+  border-radius: 7px;
+}
+
+p {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.info-box {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: rgb(243 , 243 , 243);;
+  box-shadow: 0 0 2px 2px rgb(50 , 50 , 50);
+  border-radius: 5px;
+}
+
+fieldset {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#full-name {
+  padding: 5px;
+  border-radius: 5px;
+  width: 70%;
+  margin-bottom: 7px;
+}
+
+#input-email {
+  padding: 5px;
+  border-radius: 5px;
+  width: 30%;
+  margin-bottom: 7px;
+}
+
+#input-cpf {
+  padding: 5px;
+  border-radius: 5px;
+  width: 20%;
+  margin-bottom: 7px;
+}
+
+#input-address {
+  padding: 5px;
+  border-radius: 5px;
+  width: 60%;
+  margin-bottom: 7px;
+}
+
+#type-residence-1 , #type-residence-2 {
+  margin-top: 7px;
+  margin-bottom: 10px;
+  background-color: rgb(255 , 255 , 255);
+}
+
+#input-city {
+  padding: 5px;
+  border-radius: 5px;
+  width: 30%;
+  margin-bottom: 7px;
+}
+
+#select-state {
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid rgb(58, 58, 58);
+  margin-bottom: 7px;
+  background-color: rgb(255 , 255 , 255);
+}
+
+textarea {
+  resize: none;
+  width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 7px;
+}
+
+#input-office {
+  padding: 5px;
+  border-radius: 5px;
+  width: 40%;
+  margin-bottom: 7px;
+}
+
+#initial-date {
+  padding: 5px;
+  border-radius: 5px;
+  width: 20%;
+  margin-bottom: 7px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.erro {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+  color: red;
+}
+
+.erro:focus {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+  color: red;
+}
+
+.erro::placeholder {
+  color: red;
+}
+
+.correct {
+  border-color: lime;
+  color: green;
+}
+
+.correct:focus {
+  border-color: lime;
+  color: green;
+  box-shadow: 0 0 2px 2px lime;
+}
+
+.erro-txt {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+}
+
+.erro-txt:focus {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+}
+
+.erro-txt::placeholder {
+  color: red;
+}
+
+.correct-txt {
+  border-color: lime;
+}
+
+.correct-txt:focus {
+  border-color: lime;
+  box-shadow: 0 0 2px 2px lime;
+}
