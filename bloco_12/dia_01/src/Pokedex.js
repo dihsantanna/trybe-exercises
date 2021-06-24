@@ -1,6 +1,5 @@
 import React from 'react';
 import Pokemon from './Pokemon';
-import Header from './Header';
 import './App.css';
 
 class Pokedex extends React.Component {
@@ -14,14 +13,13 @@ class Pokedex extends React.Component {
                 unity={averageWeight.measurementUnit}
                 src={image} alt={`image-${name}`}
                 key={id}/>;
-            })
+            })[0]
     }
 
     render() {
         const { pokemons } = this.props
         return (
             <div className="main">
-                <Header />
                 <section className="pokedex">
                     {this.pokemonRender(pokemons)}
                 </section>

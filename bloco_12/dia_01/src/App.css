@@ -1,45 +1,61 @@
-.main {
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body, .root {
+  height: 100%;
+}
+
+.App {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  height: 1000px;
-  max-height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
   text-align: center;
   margin-bottom: 30px;
+  padding: 20px;
 }
 
 .title img {
   width: 319px;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  width: 80vw;
+  height: 70%;
+}
+
 .pokedex {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  max-width: 1200px;
-  height: 50vh;
   align-items: center;
+  width: 40%;
+  height: 40%;
 }
 
 .poke-contain {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 350px;
+  width: 100%;
+  height: 100%;
   border: solid 1px grey;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px;
   margin-bottom: 10px;
   padding: 0 5px;
   cursor: pointer;
-}
-
-.poke-contain:hover {
-  box-shadow: none;
 }
 
 .poke-info {
