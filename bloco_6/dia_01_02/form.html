@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap-5.0.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/pikaday/css/pikaday.css">
+    <link rel="stylesheet" href="./node_modules/just-validate/dist/css/justValidateTooltip.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Currículo</title>
+</head>
+<body class="p-3 mb-2 bg-secondary text-white">
+    <h1 class="p-3 mb-2 bg-light bg-gradient text-dark border border-2 rounded text-center">Currículo</h1>
+    <section class="p-3 mb-2 bg-light bg-gradient text-dark border border-2 rounded">
+        <form class="js-form row g-4" action="" id="form" method="get">
+            <p class="fs-4">Informações Pessoais:</p>
+            <div class="form-group col-md-6">
+                <label for="name" class="form-label">Nome</label>
+                <div class="just-validate-tooltip-container js-validate-error-field js-validate-error-label"></div>
+                    <input autocapitalize="words" type="text" class="form__input form-control" autocomplete="off" name="name" id="name" placeholder="ex: João da Silva Sauro" data-validate-field="name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="ex: joao@silva.sauro.br" autocomplete="off" data-validate-field="email" required>
+            </div>    
+            <div class="form-group col-md-4">
+                <label for="input-cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" name="cpf" id="input-cpf" placeholder="ex: 12345678910" data-validate-field="cpf" required>
+            </div>
+            <div class="form-group row g-3">
+                <div class="col-md-4">
+                    <label for="input-address" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" name="endereço" id="input-address" placeholder="ex: Rua Costa, 171, Bairro do Fim" data-validate-field="address" required>
+                </div>
+                <div class="form-group col-sm"><p>Residencia:</p>
+                    <div class="form-group form-check-inline">
+                        <input type="radio" class="form-check-input" name="tipo-de-residencia" id="type-residence-1" value="Casa" data-validate-field="radio" required>
+                        <label for="type-residence-1" class="form-check-label">Casa</label>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <input type="radio" class="form-check-input" name="tipo-de-residencia" id="type-residence-2" value="Apartamento" data-validate-field="radio" required>
+                        <label for="type-residence-2" class="form-label">Apartamento</label>
+                    </div>
+                </div>
+                <div class="form-group col-sm">
+                    <label for="input-city" class="form-label">Cidade</label><br>
+                    <input type="text" class="form-control" name="cidade" id="input-city" placeholder="ex: New Iguaçu" data-validate-field="city" required>
+                </div>
+                <div class="form-group col-sm">
+                    <label for="select-state" class="form-label">Estado</label><br>
+                    <select name="estado" class="form-select" id="select-state" data-validate-field="state" required></select>
+                </div>
+            </div>
+            <p class="fs-4">Dados do Último Emprego:</p>
+            <div class="form-group mb-3">
+                <label for="curriculum-summary" class="form-label"><p>Resumo do currículo</p>
+                    <textarea autocapitalize="sentences" wrap="soft" spellcheck="true" name="resumo-curriculo" class="form-control" id="curriculum-summary" cols="60" rows="10" placeholder="Digite no máximo 1000 caracteres incluindo os espaços" data-validate-field="text" required></textarea>
+                </label>            
+            </div>
+            <div class="form-group col-md-4">
+                <label for="input-office" class="form-label">Cargo</label>
+                <input type="text" class="form-control" name="cargo" id="input-office" placeholder="ex: Secretário Executivo" data-validate-field="text2" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="job-description" class="form-label"><p>Descrição do cargo</p>
+                    <textarea autocapitalize="sentences" wrap="soft" spellcheck="true" name="descricao-cargo" class="form-control" id="job-description" cols="30" rows="10" placeholder="Digite no máximo 500 caracteres incluindo os espaços" data-validate-field="text3" required></textarea>
+                </label>            
+            </div>
+            <div class="form-group col-md-4">
+                <label for="datepicker" class="form-label">Data de início</label>
+                <input type="text" class="form-control" name="data-inicio" id="datepicker" placeholder="Formato dd/mm/aaaa" data-validate-field="date" required>
+            </div>
+            <div class="form-group col-12">
+                <button class="btn btn-success" type="submit" id="button-submit">Enviar</button>
+                <button class="btn btn-danger" type="reset">Limpar</button>
+            </div>
+            </section>
+        </form>
+    </section>
+    <script src="./node_modules/moment/moment.js"></script>
+    <script src="./node_modules/moment/locale/pt-br.js" charset="UTF-8"></script>
+    <script src="./node_modules/pikaday/pikaday.js"></script>
+    <script src="./node_modules/just-validate/dist/js/just-validate.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

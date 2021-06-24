@@ -1,0 +1,58 @@
+@import './node_modules/pikaday/css/pikaday.css';
+#curriculum-summary {
+  resize: none;
+}
+
+#job-description {
+  resize: none;
+}
+
+.erro {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+  color: red;
+}
+
+.erro:focus {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+  color: red;
+}
+
+.erro::placeholder {
+  color: red;
+}
+
+.correct {
+  border-color: lime;
+  color: green;
+}
+
+.correct:focus {
+  border-color: lime;
+  color: green;
+  box-shadow: 0 0 2px 2px lime;
+}
+
+.erro-txt {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+}
+
+.erro-txt:focus {
+  border-color: red;
+  box-shadow: 0 0 2px 2px red;
+}
+
+.erro-txt::placeholder {
+  color: red;
+}
+
+.correct-txt {
+  border-color: lime;
+}
+
+.correct-txt:focus {
+  border-color: lime;
+  box-shadow: 0 0 2px 2px lime;
+}
