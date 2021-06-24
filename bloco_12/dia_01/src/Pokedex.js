@@ -1,3 +1,4 @@
+import React from 'react';
 import Pokemon from './Pokemon';
 import pokemons from './data';
 import './App.css';
