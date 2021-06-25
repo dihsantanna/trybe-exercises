@@ -7,8 +7,8 @@ class PokeTypesButtons extends React.Component {
         const props = this.props;
         return (
             <div className="poke-type">
-                <Button btnType='button' btnClass='btn-psychic' btnFunc={props.btnFunc} btnText='Psychic'/>
-                <Button btnType='button' btnClass='btn-fire' btnFunc={props.btnFunc} btnText='Fire'/>
+                <Button btnType='button' btnClass='btn-psychic btn-type' btnFunc={props.btnFunc} btnText='Psychic'/>
+                <Button btnType='button' btnClass='btn-fire btn-type' btnFunc={props.btnFunc} btnText='Fire'/>
             </div>
         )
     }

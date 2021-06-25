@@ -59,25 +59,6 @@ html, body, .root {
   width: 100px;
 }
 
-.poke-type {
-  margin: 10px;
-  display: flex;
-  width: 40%;
-  justify-content: space-around;
-}
-
-.btn-psychic, .btn-fire {
-  width: 100px;
-  height: 50px;
-  border-radius: 5px;
-}
-
-.btn-next {
-  width: 30%;
-  height: 50px;
-  border-radius: 5px;
-}
-
 .footer {
   width: 100%;
   padding: 10px;
