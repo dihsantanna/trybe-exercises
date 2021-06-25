@@ -10,7 +10,7 @@ class Pokedex extends React.Component {
 
         this.state = { 
             pokeIndex: 0,
-            pokeType: 'Psychic'
+            pokeType: 'Psychic',
          };
 
         this.typeChange = this.typeChange.bind(this);
@@ -20,15 +20,27 @@ class Pokedex extends React.Component {
         this.indexPokemon = this.indexPokemon.bind(this);
     };
 
+    disabledNextBtn(filterList) {
+        if (filterList.length === 1) {
+            return document.querySelector('.btn-next').setAttribute('disabled', 'disabled');
+        }
+        if (document.querySelector('.btn-next').getAttribute('disabled')) {
+            document.querySelector('.btn-next').removeAttribute('disabled', 'disabled');
+        }
+    }
+    
+    
     typeChange(e) {
         const event = e.target.value !== this.state.pokeType;
         if (event) {
-            return this.setState({ pokeType: e.target.value });
+            this.setState({ pokeIndex: 0 });
+            this.setState({ pokeType: e.target.value });
         }
     }
     
     pokeFilter(pokemons) {
-        return pokemons.filter((pokemon) => pokemon.type.includes(this.state.pokeType));
+        const filterList =  pokemons.filter((pokemon) => pokemon.type.includes(this.state.pokeType));
+        return filterList;
     }
     
     indexPokemon(pokemons) {
@@ -45,7 +57,7 @@ class Pokedex extends React.Component {
         const index = this.state.pokeIndex;
         
         const filterPokemon = this.pokeFilter(pokemons)
-        
+        this.disabledNextBtn(filterPokemon);
         const { name, type, averageWeight, image, id } = filterPokemon[index];
         
         return <Pokemon
@@ -54,20 +66,24 @@ class Pokedex extends React.Component {
         weight={averageWeight.value}
         unity={averageWeight.measurementUnit}
         src={image} alt={`image-${name}`}
-        key={id}/>;
+        key={id}
+        />;
         
     };
 
     render() {
         const { pokemons } = this.props
         return (
-            <section className="pokedex">
+            <section className="pokedex" >
                 
                 {this.pokemonRender(pokemons)}
 
-                <PokeTypesButtons btnFunc={(event) => this.typeChange(event)} pokemons={pokemons}/>
+                <PokeTypesButtons btnFunc={(event) => {
+                    this.typeChange(event);
+                }} 
+                    pokemons={pokemons} />
 
-                <NextButton btnType='button' btnFunc={() => this.indexPokemon(pokemons)}/>
+                <NextButton btnType='button' btnFunc={() => this.indexPokemon(pokemons)} />
 
             </section>
         )
