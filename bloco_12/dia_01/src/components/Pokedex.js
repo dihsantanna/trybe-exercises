@@ -1,7 +1,7 @@
 import React from 'react';
 import Pokemon from './Pokemon';
+import PokeTypesButtons from './PokeTypesButtons';
 import NextButton from './NextButton';
-import Button from './Button';
 import '../App.css';
 
 class Pokedex extends React.Component {
@@ -62,12 +62,13 @@ class Pokedex extends React.Component {
         const { pokemons } = this.props
         return (
             <section className="pokedex">
+                
                 {this.pokemonRender(pokemons)}
-                <div className="poke-type">
-                <Button btnType='button' btnClass='btn-psychic' btnFunc={(event) => this.typeChange(event)} btnText='Psychic'/>
-                <Button btnType='button' btnClass='btn-fire' btnFunc={(event) => this.typeChange(event)} btnText='Fire'/>
-                </div>
+
+                <PokeTypesButtons btnFunc={(event) => this.typeChange(event)} />
+
                 <NextButton btnType='button' btnFunc={() => this.indexPokemon(pokemons)}/>
+
             </section>
         )
     }
