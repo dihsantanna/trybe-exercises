@@ -1,5 +1,6 @@
 import React from 'react';
 import Pokemon from './Pokemon';
+import NextButton from './NextButton';
 import Button from './Button';
 import '../App.css';
 
@@ -66,7 +67,7 @@ class Pokedex extends React.Component {
                 <Button btnType='button' btnClass='btn-psychic' btnFunc={(event) => this.typeChange(event)} btnText='Psychic'/>
                 <Button btnType='button' btnClass='btn-fire' btnFunc={(event) => this.typeChange(event)} btnText='Fire'/>
                 </div>
-                <Button btnType='button' btnClass='btn-next' btnFunc={() => this.indexPokemon(pokemons)} btnText='Next Pokemon'/>
+                <NextButton btnType='button' btnFunc={() => this.indexPokemon(pokemons)}/>
             </section>
         )
     }
