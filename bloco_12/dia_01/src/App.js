@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from './Header';
-import Pokedex from './Pokedex';
-import Footer from './Footer';
+import Header from './components/Header';
+import Pokedex from './components/Pokedex';
+import Footer from './components/Footer';
 import pokemons from './data';
+import './App.css'
 
 class App extends React.Component {
   render() {

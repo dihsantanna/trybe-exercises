@@ -1,8 +1,7 @@
 import React from 'react';
-import { Component } from 'react';
-import './App.css';
+import '../App.css';
 
-class Pokemon extends Component {
+class Pokemon extends React.Component {
     render() {
         const pokeData = this.props;
 

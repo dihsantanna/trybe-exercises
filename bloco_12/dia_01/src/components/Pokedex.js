@@ -1,7 +1,7 @@
 import React from 'react';
 import Pokemon from './Pokemon';
 import Button from './Button';
-import './App.css';
+import '../App.css';
 
 class Pokedex extends React.Component {
     constructor() {
@@ -32,6 +32,7 @@ class Pokedex extends React.Component {
     
     indexPokemon(pokemons) {
         const index = this.state.pokeIndex;
+        
         const indexFilter = this.pokeFilter(pokemons).length - 1;
 
         if (index === indexFilter) return this.setState({ pokeIndex: 0 });
