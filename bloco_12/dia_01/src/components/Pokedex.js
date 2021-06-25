@@ -21,14 +21,14 @@ class Pokedex extends React.Component {
     };
 
     typeChange(e) {
-        const event = e.target.innerText.contains !== this.state.pokeType;
+        const event = e.target.value !== this.state.pokeType;
         if (event) {
-            return this.setState({ pokeType: e.target.innerText });
+            return this.setState({ pokeType: e.target.value });
         }
     }
     
     pokeFilter(pokemons) {
-        return pokemons.filter((pokemon) => pokemon.type === this.state.pokeType);
+        return pokemons.filter((pokemon) => pokemon.type.includes(this.state.pokeType));
     }
     
     indexPokemon(pokemons) {
@@ -65,7 +65,7 @@ class Pokedex extends React.Component {
                 
                 {this.pokemonRender(pokemons)}
 
-                <PokeTypesButtons btnFunc={(event) => this.typeChange(event)} />
+                <PokeTypesButtons btnFunc={(event) => this.typeChange(event)} pokemons={pokemons}/>
 
                 <NextButton btnType='button' btnFunc={() => this.indexPokemon(pokemons)}/>
 
