@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import Input from './Input';
 import '../App.css';
 
-class App extends Component {
+class Form extends Component {
   render() {
     return (
       <form className="form">
         <legend className="legend-form">Currículo</legend>
+        <Input />
       </form>
     );
   }
 }
 
-export default App;
+export default Form;
