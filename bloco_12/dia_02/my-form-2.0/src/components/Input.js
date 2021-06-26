@@ -4,15 +4,19 @@ import '../App.css';
 
 class Input extends Component {
   render() {
-    const { inptValue,
+    const {
+      inptName,
+      inptValue,
       inptCheck,
       inptType,
       inptClass,
       inptFuncChange,
-      inptFuncBlur } = this.props;
+      inptFuncBlur,
+    } = this.props;
 
     return (
       <input
+        name={ inptName }
         className={ inptClass }
         value={ inptValue }
         checked={ inptCheck }
@@ -25,6 +29,7 @@ class Input extends Component {
 }
 
 Input.propTypes = {
+  inptName: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
   inptCheck: PropTypes.bool,
   inptType: PropTypes.string,
