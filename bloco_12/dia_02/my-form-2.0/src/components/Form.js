@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Input from './Input';
+import InputName from './InputName';
 import '../App.css';
 
 class Form extends Component {
@@ -7,7 +7,9 @@ class Form extends Component {
     return (
       <form className="form">
         <legend className="legend-form">Currículo</legend>
-        <Input />
+        <fieldset>
+          <InputName inptName="name" />
+        </fieldset>
       </form>
     );
   }
