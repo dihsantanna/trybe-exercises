@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import '../App.css';
 
-class InputName extends Component {
+class InputEmail extends Component {
   render() {
     const { inptValue, inptFuncChange, inptName } = this.props;
 
     return (
       <Input
-        inptTitle="Nome : "
+        inptTitle="Email : "
         inptName={ inptName }
-        inptClass="input-name"
-        inptId="input-name"
+        inptClass="input-email"
+        inptId="input-email"
         inptValue={ inptValue }
         inptFuncChange={ inptFuncChange }
       />
@@ -20,15 +20,15 @@ class InputName extends Component {
   }
 }
 
-InputName.propTypes = {
+InputEmail.propTypes = {
   inptName: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
   inptFuncChange: PropTypes.func,
 };
 
-InputName.defaultProps = {
+InputEmail.defaultProps = {
   inptValue: '',
   inptFuncChange: () => {},
 };
 
-export default InputName;
+export default InputEmail;

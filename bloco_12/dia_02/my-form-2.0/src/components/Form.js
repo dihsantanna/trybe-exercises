@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InputName from './InputName';
+import InputEmail from './InputEmail';
 import '../App.css';
 
 class Form extends Component {
@@ -7,23 +8,28 @@ class Form extends Component {
     super();
     this.state = {
       name: '',
+      email: '',
       formWithError: true,
     };
     this.handleChange = this.handleChange.bind(this);
 
     this.checkAll = {
-      nameCheck: (name) => name.match(/(\s|[A-Za-z]|[áãéêíóôõú]|'){0,40}/gi)[0],
+      fieldCheck: {
+        nameCheck: (name) => name.match(/(\s|[A-Za-z]|[áãéêíóôõú]|'){0,40}/gi)[0],
+        emailCheck: (email) => email.match(/(\w|\d|\.|@|-){0,50}/gi)[0],
+      },
       checkForm: () => {
-        const { name } = this.state;
+        const { name, email } = this.state;
 
         const nameMin = 7;
 
         const errorCheck = [
           name.length <= nameMin,
+          !email.match(/\S+@[a-z]+\.[a-z]{2,3}(\.br)?$/),
         ];
 
         const isOk = errorCheck.every((error) => error !== true);
-        console.log(isOk);
+
         this.setState({ formWithError: !isOk });
       },
     };
@@ -36,15 +42,22 @@ class Form extends Component {
   }
 
   render() {
-    const { name, formWithError } = this.state;
-    const { nameCheck } = this.checkAll;
+    const { name, email, formWithError } = this.state;
+    const { nameCheck, emailCheck } = this.checkAll.fieldCheck;
     return (
       <form className="form">
         <legend className="legend-form">Currículo</legend>
         <fieldset>
+
           <InputName
             inptName="name"
             inptValue={ !name ? name : nameCheck(name).toUpperCase() }
+            inptFuncChange={ this.handleChange }
+          />
+
+          <InputEmail
+            inptName="email"
+            inptValue={ !email ? email : emailCheck(email).toLowerCase() }
             inptFuncChange={ this.handleChange }
           />
         </fieldset>
