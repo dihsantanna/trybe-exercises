@@ -25,7 +25,7 @@ class Form extends Component {
 
         const errorCheck = [
           name.length <= nameMin,
-          !email.match(/\S+@[a-z]+\.[a-z]{2,3}(\.br)?$/),
+          !email.match(/\b[a-z]+(\.|-|\w|\d)*?@[a-z]+\.[a-z]{2,3}(\.br)?$/i),
         ];
 
         const isOk = errorCheck.every((error) => error !== true);
