@@ -4,6 +4,11 @@ import Input from './Input';
 import '../App.css';
 
 class InputCPF extends Component {
+  cpfCheck({ target }) {
+    const check = target.value.match(/\d{0,11}/)[0];
+    target.value = check;
+  }
+
   render() {
     const { inptValue, inptFuncChange, inptName } = this.props;
 
@@ -14,7 +19,10 @@ class InputCPF extends Component {
         inptClass="input-cpf"
         inptId="input-cpf"
         inptValue={ inptValue }
-        inptFuncChange={ inptFuncChange }
+        inptFuncChange={ (e) => {
+          this.cpfCheck(e);
+          inptFuncChange(e);
+        } }
       />
     );
   }

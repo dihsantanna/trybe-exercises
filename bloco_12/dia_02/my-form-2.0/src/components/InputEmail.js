@@ -4,6 +4,11 @@ import Input from './Input';
 import '../App.css';
 
 class InputEmail extends Component {
+  emailCheck({ target }) {
+    const check = target.value.match(/(\w|\d|\.|@|-){0,50}/gi)[0];
+    target.value = check.toLowerCase();
+  }
+
   render() {
     const { inptValue, inptFuncChange, inptName } = this.props;
 
@@ -14,7 +19,10 @@ class InputEmail extends Component {
         inptClass="input-email"
         inptId="input-email"
         inptValue={ inptValue }
-        inptFuncChange={ inptFuncChange }
+        inptFuncChange={ (e) => {
+          this.emailCheck(e);
+          inptFuncChange(e);
+        } }
       />
     );
   }

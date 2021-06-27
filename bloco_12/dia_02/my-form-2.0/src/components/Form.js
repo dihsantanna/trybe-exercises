@@ -23,55 +23,43 @@ class Form extends Component {
 
     this.startsWithNumber = this.startsWithNumber.bind(this);
 
-    this.checkAllErrors = {
-      fieldCheck: {
-        nameCheck: (name) => name.match(/(\s|[a-záãéêíóôõúç]|'){0,40}/gi)[0],
-
-        emailCheck: (email) => email.match(/(\w|\d|\.|@|-){0,50}/gi)[0],
-
-        cpfCheck: (cpf) => cpf.match(/\d{0,11}/gi)[0],
-
-        addressCheck: (address) => address.match(/(\s|[a-záãéêíóôõúç]){0,200}/gi)[0],
-
-        cityCheck: (city) => city.match(/(\S|\s){0,28}/gi)[0],
-      },
-
-      checkForm: () => {
-        const { name, email, cpf, address, city } = this.state;
-
-        const nameMin = 7;
-        const cpfLength = 11;
-
-        const errorCheck = [
-          name.length <= nameMin,
-          !email.match(/\b[a-z]+(\.|-|\w|\d)*?@[a-z]+\.[a-z]{2,3}(\.br)?$/i),
-          cpf.length < cpfLength,
-          !address.length,
-          !city.length,
-        ];
-
-        const isOk = errorCheck.every((error) => error !== true);
-
-        this.setState({ formWithError: !isOk });
-      },
-    };
+    this.checkAllErrors = this.checkAllErrors.bind(this);
   }
 
   handleChange({ target }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
-    this.setState({ [name]: value }, () => this.checkAllErrors.checkForm());
+    this.setState({ [name]: value }, () => this.checkAllErrors());
   }
 
   startsWithNumber({ target }) {
     const { name } = target;
-    const { value } = target;
+    const value = target.value.slice(0);
 
-    if (value[0].search(/\d/) === 0) {
+    if (value.search(/\d/) === 0) {
       this.setState({
         [name]: '',
-      }, () => this.checkAllErrors.checkForm());
+      }, () => this.checkAllErrors());
     }
+  }
+
+  checkAllErrors() {
+    const { name, email, cpf, address, city } = this.state;
+
+    const nameMin = 7;
+    const cpfLength = 11;
+
+    const errorCheck = [
+      name.length <= nameMin,
+      !email.match(/\b[a-z]+(\.|-|\w|\d)*?@[a-z]+\.[a-z]{2,3}(\.br)?$/i),
+      cpf.length < cpfLength,
+      !address.length,
+      !city.length,
+    ];
+
+    const isOk = errorCheck.every((error) => error !== true);
+
+    this.setState({ formWithError: !isOk });
   }
 
   render() {
@@ -83,14 +71,6 @@ class Form extends Component {
       city,
       formWithError,
     } = this.state;
-
-    const {
-      nameCheck,
-      emailCheck,
-      cpfCheck,
-      addressCheck,
-      cityCheck,
-    } = this.checkAllErrors.fieldCheck;
 
     const isOk = 'Todos os campos foram preenchidos !!!';
 
@@ -105,31 +85,31 @@ class Form extends Component {
           <legend className="personal-data">Dados Pessoais</legend>
           <InputName
             inptName="name"
-            inptValue={ !name ? name : nameCheck(name).toUpperCase() }
+            inptValue={ name }
             inptFuncChange={ this.handleChange }
           />
 
           <InputEmail
             inptName="email"
-            inptValue={ !email ? email : emailCheck(email).toLowerCase() }
+            inptValue={ email }
             inptFuncChange={ this.handleChange }
           />
 
           <InputCPF
             inptName="cpf"
-            inptValue={ !cpf ? cpf : cpfCheck(cpf) }
+            inptValue={ cpf }
             inptFuncChange={ this.handleChange }
           />
 
           <InputAddress
             inptName="address"
-            inptValue={ !address ? address : addressCheck(address) }
+            inptValue={ address }
             inptFuncChange={ this.handleChange }
           />
 
           <InputCity
             inptName="city"
-            inptValue={ !city ? city : cityCheck(city) }
+            inptValue={ city }
             inptFuncChange={ this.handleChange }
             inptFuncBlur={ this.startsWithNumber }
           />

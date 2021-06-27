@@ -4,6 +4,11 @@ import Input from './Input';
 import '../App.css';
 
 class InputName extends Component {
+  nameCheck({ target }) {
+    const check = target.value.match(/(\s|[a-záãéêíóôõúç]|'){0,40}/gi)[0];
+    target.value = check.toUpperCase();
+  }
+
   render() {
     const { inptValue, inptFuncChange, inptName } = this.props;
 
@@ -14,7 +19,10 @@ class InputName extends Component {
         inptClass="input-name"
         inptId="input-name"
         inptValue={ inptValue }
-        inptFuncChange={ inptFuncChange }
+        inptFuncChange={ (e) => {
+          this.nameCheck(e);
+          inptFuncChange(e);
+        } }
       />
     );
   }

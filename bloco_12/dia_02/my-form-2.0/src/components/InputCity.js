@@ -4,6 +4,11 @@ import Input from './Input';
 import '../App.css';
 
 class InputCity extends Component {
+  cityCheck({ target }) {
+    const check = target.value.match(/(\S|\s){0,28}/gi)[0];
+    target.value = check.toUpperCase();
+  }
+
   render() {
     const { inptValue, inptFuncChange, inptName, inptFuncBlur } = this.props;
 
@@ -14,7 +19,10 @@ class InputCity extends Component {
         inptClass="input-Address"
         inptId="input-Address"
         inptValue={ inptValue }
-        inptFuncChange={ inptFuncChange }
+        inptFuncChange={ (e) => {
+          this.cityCheck(e);
+          inptFuncChange(e);
+        } }
         inptFuncBlur={ inptFuncBlur }
       />
     );
