@@ -23,12 +23,11 @@ class InputEmail extends Component {
 InputEmail.propTypes = {
   inptName: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
-  inptFuncChange: PropTypes.func,
+  inptFuncChange: PropTypes.func.isRequired,
 };
 
 InputEmail.defaultProps = {
   inptValue: '',
-  inptFuncChange: () => {},
 };
 
 export default InputEmail;

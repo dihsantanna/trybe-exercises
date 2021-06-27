@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import '../App.css';
 
-class InputAddress extends Component {
+class InputCity extends Component {
   render() {
-    const { inptValue, inptFuncChange, inptName } = this.props;
+    const { inptValue, inptFuncChange, inptName, inptFuncBlur } = this.props;
 
     return (
       <Input
@@ -15,19 +15,21 @@ class InputAddress extends Component {
         inptId="input-Address"
         inptValue={ inptValue }
         inptFuncChange={ inptFuncChange }
+        inptFuncBlur={ inptFuncBlur }
       />
     );
   }
 }
 
-InputAddress.propTypes = {
+InputCity.propTypes = {
   inptName: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
   inptFuncChange: PropTypes.func.isRequired,
+  inptFuncBlur: PropTypes.func.isRequired,
 };
 
-InputAddress.defaultProps = {
+InputCity.defaultProps = {
   inptValue: '',
 };
 
-export default InputAddress;
+export default InputCity;

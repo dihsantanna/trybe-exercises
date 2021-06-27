@@ -23,12 +23,11 @@ class InputName extends Component {
 InputName.propTypes = {
   inptName: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
-  inptFuncChange: PropTypes.func,
+  inptFuncChange: PropTypes.func.isRequired,
 };
 
 InputName.defaultProps = {
   inptValue: '',
-  inptFuncChange: () => {},
 };
 
 export default InputName;

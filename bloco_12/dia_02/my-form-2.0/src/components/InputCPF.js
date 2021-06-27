@@ -23,12 +23,11 @@ class InputCPF extends Component {
 InputCPF.propTypes = {
   inptName: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
-  inptFuncChange: PropTypes.func,
+  inptFuncChange: PropTypes.func.isRequired,
 };
 
 InputCPF.defaultProps = {
   inptValue: '',
-  inptFuncChange: () => {},
 };
 
 export default InputCPF;

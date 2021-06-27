@@ -19,7 +19,7 @@ class Form extends Component {
 
     this.handleChange = this.handleChange.bind(this);
 
-    this.checkAll = {
+    this.checkAllErrors = {
       fieldCheck: {
         nameCheck: (name) => name.match(/(\s|[a-záãéêíóôõúç]|'){0,40}/gi)[0],
 
@@ -53,13 +53,24 @@ class Form extends Component {
   handleChange({ target }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;
-    this.setState({ [name]: value }, () => this.checkAll.checkForm());
+    this.setState({ [name]: value }, () => this.checkAllErrors.checkForm());
   }
 
   render() {
-    const { name, email, cpf, address, formWithError } = this.state;
+    const {
+      name,
+      email,
+      cpf,
+      address,
+      formWithError,
+    } = this.state;
 
-    const { nameCheck, emailCheck, cpfCheck, addressCheck } = this.checkAll.fieldCheck;
+    const {
+      nameCheck,
+      emailCheck,
+      cpfCheck,
+      addressCheck,
+    } = this.checkAllErrors.fieldCheck;
 
     const isOk = 'Todos os campos foram preenchidos !!!';
 
@@ -68,10 +79,10 @@ class Form extends Component {
     return (
       <form className="form">
 
-        <legend className="legend-form">Currículo</legend>
+        <h1 className="title-form">Currículo</h1>
 
         <fieldset>
-
+          <legend className="personal-data">Dados Pessoais</legend>
           <InputName
             inptName="name"
             inptValue={ !name ? name : nameCheck(name).toUpperCase() }
