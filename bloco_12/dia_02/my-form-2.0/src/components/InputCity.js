@@ -9,7 +9,7 @@ class InputCity extends Component {
 
     return (
       <Input
-        inptTitle="Endereço : "
+        inptTitle="Cidade : "
         inptName={ inptName }
         inptClass="input-Address"
         inptId="input-Address"
