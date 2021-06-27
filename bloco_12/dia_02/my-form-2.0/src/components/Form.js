@@ -2,27 +2,36 @@ import React, { Component } from 'react';
 import InputName from './InputName';
 import InputEmail from './InputEmail';
 import InputCPF from './InputCPF';
+import InputAddress from './InputAddress';
 import '../App.css';
 
 class Form extends Component {
   constructor() {
     super();
+
     this.state = {
       name: '',
       email: '',
       cpf: '',
+      address: '',
       formWithError: true,
     };
+
     this.handleChange = this.handleChange.bind(this);
 
     this.checkAll = {
       fieldCheck: {
-        nameCheck: (name) => name.match(/(\s|[A-Za-z]|[áãéêíóôõú]|'){0,40}/gi)[0],
+        nameCheck: (name) => name.match(/(\s|[a-záãéêíóôõúç]|'){0,40}/gi)[0],
+
         emailCheck: (email) => email.match(/(\w|\d|\.|@|-){0,50}/gi)[0],
+
         cpfCheck: (cpf) => cpf.match(/\d{0,11}/gi)[0],
+
+        addressCheck: (address) => address.match(/(\s|[a-záãéêíóôõúç]){0,200}/gi)[0],
       },
+
       checkForm: () => {
-        const { name, email, cpf } = this.state;
+        const { name, email, cpf, address } = this.state;
 
         const nameMin = 7;
         const cpfLength = 11;
@@ -31,6 +40,7 @@ class Form extends Component {
           name.length <= nameMin,
           !email.match(/\b[a-z]+(\.|-|\w|\d)*?@[a-z]+\.[a-z]{2,3}(\.br)?$/i),
           cpf.length < cpfLength,
+          address.length,
         ];
 
         const isOk = errorCheck.every((error) => error !== true);
@@ -47,11 +57,19 @@ class Form extends Component {
   }
 
   render() {
-    const { name, email, cpf, formWithError } = this.state;
-    const { nameCheck, emailCheck, cpfCheck } = this.checkAll.fieldCheck;
+    const { name, email, cpf, address, formWithError } = this.state;
+
+    const { nameCheck, emailCheck, cpfCheck, addressCheck } = this.checkAll.fieldCheck;
+
+    const isOk = 'Todos os campos foram preenchidos !!!';
+
+    const isNotOk = '* Preencha todos os campos !';
+
     return (
       <form className="form">
+
         <legend className="legend-form">Currículo</legend>
+
         <fieldset>
 
           <InputName
@@ -71,10 +89,21 @@ class Form extends Component {
             inptValue={ !cpf ? cpf : cpfCheck(cpf) }
             inptFuncChange={ this.handleChange }
           />
+
+          <InputAddress
+            inptName="address"
+            inptValue={ !address ? address : addressCheck(address) }
+            inptFuncChange={ this.handleChange }
+          />
+
         </fieldset>
+
         { formWithError
-          ? <span>Preencha todos os campos !</span>
-          : <span>Todos os campos foram preenchidos !!</span> }
+
+          ? <span style={ { color: 'red' } }>{ isNotOk }</span>
+
+          : <span style={ { color: 'lime' } }>{ isOk }</span> }
+
       </form>
     );
   }
