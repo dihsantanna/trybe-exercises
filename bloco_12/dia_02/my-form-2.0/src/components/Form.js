@@ -4,6 +4,7 @@ import InputEmail from './InputEmail';
 import InputCPF from './InputCPF';
 import InputAddress from './InputAddress';
 import InputCity from './InputCity';
+import ComboBoxStates from './ComboBoxStates';
 import '../App.css';
 
 class Form extends Component {
@@ -16,6 +17,7 @@ class Form extends Component {
       cpf: '',
       address: '',
       city: '',
+      state: 'Selecione um estado',
       formWithError: true,
     };
 
@@ -44,10 +46,11 @@ class Form extends Component {
   }
 
   checkAllErrors() {
-    const { name, email, cpf, address, city } = this.state;
+    const { name, email, cpf, address, city, state } = this.state;
 
     const nameMin = 7;
     const cpfLength = 11;
+    const stateOk = state !== 'Selecione um estado';
 
     const errorCheck = [
       name.length <= nameMin,
@@ -55,6 +58,7 @@ class Form extends Component {
       cpf.length < cpfLength,
       !address.length,
       !city.length,
+      !stateOk,
     ];
 
     const isOk = errorCheck.every((error) => error !== true);
@@ -69,6 +73,7 @@ class Form extends Component {
       cpf,
       address,
       city,
+      state,
       formWithError,
     } = this.state;
 
@@ -112,6 +117,12 @@ class Form extends Component {
             inptValue={ city }
             inptFuncChange={ this.handleChange }
             inptFuncBlur={ this.startsWithNumber }
+          />
+
+          <ComboBoxStates
+            name="state"
+            onChange={ this.handleChange }
+            value={ state }
           />
 
         </fieldset>
