@@ -10,8 +10,9 @@ class InputName extends Component {
     return (
       <Input
         inptName={ inptName }
-        className="input-name"
-        value={ inptValue }
+        inptClass="input-name"
+        inptId="input-name"
+        inptValue={ inptValue }
         inptFuncChange={ inptFuncChange }
       />
     );

@@ -6,34 +6,39 @@ class Input extends Component {
   render() {
     const {
       inptName,
+      inptClass,
+      inptId,
       inptValue,
       inptCheck,
       inptType,
-      inptClass,
       inptFuncChange,
       inptFuncBlur,
     } = this.props;
 
     return (
-      <input
-        name={ inptName }
-        className={ inptClass }
-        value={ inptValue }
-        checked={ inptCheck }
-        type={ inptType }
-        onChange={ inptFuncChange }
-        onBlur={ inptFuncBlur }
-      />
+      <label htmlFor={ inptId }>
+        <input
+          name={ inptName }
+          className={ inptClass }
+          id={ inptId }
+          value={ inptValue }
+          checked={ inptCheck }
+          type={ inptType }
+          onChange={ inptFuncChange }
+          onBlur={ inptFuncBlur }
+        />
+      </label>
     );
   }
 }
 
 Input.propTypes = {
   inptName: PropTypes.string.isRequired,
+  inptClass: PropTypes.string,
+  inptId: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
   inptCheck: PropTypes.bool,
   inptType: PropTypes.string,
-  inptClass: PropTypes.string,
   inptFuncChange: PropTypes.func,
   inptFuncBlur: PropTypes.func,
 };
