@@ -10,7 +10,6 @@ class Input extends Component {
       inptClass,
       inptId,
       inptValue,
-      inptCheck,
       inptType,
       inptPlaceholder,
       inptFuncChange,
@@ -25,7 +24,6 @@ class Input extends Component {
           className={ inptClass }
           id={ inptId }
           value={ inptValue }
-          checked={ inptCheck }
           type={ inptType }
           placeholder={ inptPlaceholder }
           onChange={ inptFuncChange }
@@ -42,7 +40,6 @@ Input.propTypes = {
   inptClass: PropTypes.string,
   inptId: PropTypes.string.isRequired,
   inptValue: PropTypes.string,
-  inptCheck: PropTypes.bool,
   inptType: PropTypes.string,
   inptPlaceholder: PropTypes.string,
   inptFuncChange: PropTypes.func,
@@ -52,7 +49,6 @@ Input.propTypes = {
 Input.defaultProps = {
   inptTitle: '',
   inptValue: '',
-  inptCheck: false,
   inptType: 'text',
   inptPlaceholder: '',
   inptClass: '',

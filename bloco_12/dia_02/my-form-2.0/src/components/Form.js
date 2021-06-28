@@ -5,6 +5,7 @@ import InputCPF from './InputCPF';
 import InputAddress from './InputAddress';
 import InputCity from './InputCity';
 import ComboBoxStates from './ComboBoxStates';
+import TypeResidence from './TypeResidence';
 import '../App.css';
 
 class Form extends Component {
@@ -18,6 +19,7 @@ class Form extends Component {
       address: '',
       city: '',
       state: 'Selecione um estado',
+      typeRes: false,
       formWithError: true,
     };
 
@@ -46,7 +48,7 @@ class Form extends Component {
   }
 
   checkAllErrors() {
-    const { name, email, cpf, address, city, state } = this.state;
+    const { name, email, cpf, address, city, state, typeRes } = this.state;
 
     const nameMin = 7;
     const cpfLength = 11;
@@ -59,6 +61,7 @@ class Form extends Component {
       !address.length,
       !city.length,
       !stateOk,
+      !typeRes,
     ];
 
     const isOk = errorCheck.every((error) => error !== true);
@@ -123,6 +126,12 @@ class Form extends Component {
             name="state"
             onChange={ this.handleChange }
             value={ state }
+          />
+
+          <TypeResidence
+            radioName="typeRes"
+            onChangeHouse={ this.handleChange }
+            onChangeApart={ this.handleChange }
           />
 
         </fieldset>
