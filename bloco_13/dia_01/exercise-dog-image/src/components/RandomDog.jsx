@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 
 const URL_API = 'https://dog.ceo/api/breeds/image/random';
 
@@ -14,26 +15,36 @@ class RandomDog extends React.Component {
   }
   
   async fetchDog() {
-    const response = await fetch(URL_API);
-    const src = await response.json();
-    const message = src.message;
     this.setState({
-      loading: false,
-      srcDog: message
+      loading: true,
+    }, async () => {
+      const response = await fetch(URL_API);
+      const src = await response.json();
+      const message = src.message;
+      this.setState({
+        loading: false,
+        srcDog: message
+      })
     })
-  }
+  };
 
   componentDidMount() {
     this.fetchDog();
   }
 
-  render() {
-    const { srcDog } = this.state;
+  loadingCreate() {
     return (
-      <section>
-        <h1>Gerador de Fotos de Caninas</h1>
-        <div>
-          <img src={srcDog}/>
+      <span className="loading">Loading ...</span>
+    );
+  }
+
+  render() {
+    const { srcDog, loading } = this.state;
+    return (
+      <section className="img-generator">
+        <h1 className="title">Gerador de Fotos de Caninas</h1>
+        <div className="image-container">
+          { loading ? this.loadingCreate() : <img src={srcDog} className="img-dog"/> }
         </div>
       </section>
     );
