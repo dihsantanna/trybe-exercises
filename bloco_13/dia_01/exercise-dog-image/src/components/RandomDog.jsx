@@ -12,6 +12,7 @@ class RandomDog extends React.Component {
     }
 
     this.fetchDog = this.fetchDog.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   
   async fetchDog() {
@@ -38,6 +39,10 @@ class RandomDog extends React.Component {
     );
   }
 
+  handleClick() {
+    this.fetchDog();
+  }
+
   render() {
     const { srcDog, loading } = this.state;
     return (
@@ -46,6 +51,7 @@ class RandomDog extends React.Component {
         <div className="image-container">
           { loading ? this.loadingCreate() : <img src={srcDog} className="img-dog"/> }
         </div>
+        <button type="button" onClick={ this.handleClick } className="refresh" >Refresh</button>
       </section>
     );
   }
