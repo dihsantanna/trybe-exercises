@@ -5,7 +5,7 @@ import '../App.css';
 
 class TypeResidence extends Component {
   render() {
-    const { radioName, onChangeHouse, onChangeApart } = this.props;
+    const { radioName, onChangeHouse, onChangeApart, typeRes } = this.props;
     return (
       <div>
         {'Tipo : '}
@@ -17,6 +17,7 @@ class TypeResidence extends Component {
           inptValue="Casa"
           inptType="radio"
           inptFuncChange={ onChangeHouse }
+          typeRes={ typeRes }
         />
 
         <Input
@@ -28,6 +29,7 @@ class TypeResidence extends Component {
           inptType="radio"
           inptFuncChange={ onChangeApart }
         />
+        <div>{ typeRes ? '' : '* Campo Obrigatório' }</div>
       </div>
     );
   }
@@ -37,6 +39,11 @@ TypeResidence.propTypes = {
   radioName: PropTypes.string.isRequired,
   onChangeHouse: PropTypes.func.isRequired,
   onChangeApart: PropTypes.func.isRequired,
+  typeRes: PropTypes.string,
+};
+
+TypeResidence.defaultProps = {
+  typeRes: '',
 };
 
 export default TypeResidence;

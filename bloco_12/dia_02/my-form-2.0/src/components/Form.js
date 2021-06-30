@@ -19,7 +19,7 @@ class Form extends Component {
       address: '',
       city: '',
       state: 'Selecione um estado',
-      typeRes: false,
+      typeRes: '',
       formWithError: true,
     };
 
@@ -77,6 +77,7 @@ class Form extends Component {
       address,
       city,
       state,
+      typeRes,
       formWithError,
     } = this.state;
 
@@ -132,6 +133,7 @@ class Form extends Component {
             radioName="typeRes"
             onChangeHouse={ this.handleChange }
             onChangeApart={ this.handleChange }
+            typeRes={ typeRes }
           />
 
         </fieldset>
