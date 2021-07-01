@@ -20,6 +20,7 @@ class RandomDog extends React.Component {
     this.fetchDog = this.fetchDog.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.clickToSaveDog = this.clickToSaveDog.bind(this);
+    this.isSavedDog = this.isSavedDog.bind(this);
   }
   
   async fetchDog() {
@@ -34,15 +35,18 @@ class RandomDog extends React.Component {
         srcDog: message,
         race: this.raceDog(message),
       }, () => {
+        const { myDogs } = this.state;
         if (message.includes('terrier')) {
           return alert(MSG_TERRIER)
         }
+        this.isSavedDog(myDogs, message)
     })
     })
   };
 
   handleClick() {
     this.fetchDog();
+    this.setState({ dogName: '' })
   }
 
   raceDog = (srcDog) => {
@@ -64,32 +68,39 @@ class RandomDog extends React.Component {
         }]
       }))
     }
-    alert('Esse Dog já tem dono :D')    
+    alert('Esse Dog já tem nome :D')    
+  }
+
+  isSavedDog(myDogs, message) {
+    const myDog = myDogs.find((dog) => message === dog.src);
+    if (myDog) {
+      this.setState({
+        srcDog: myDog.src
+      })
+    } 
   }
 
   componentDidMount() {
-    const storage = localStorage.getItem('srcDog');
-    if (!!storage) {
-      return this.setState({
-        srcDog: storage,
-        race: this.raceDog(storage),
+    const jsonMyDogs = localStorage.getItem('myDogs');
+    const myDogs = JSON.parse(jsonMyDogs)
+    if (!!myDogs) {
+      this.setState({
+        myDogs: myDogs,
       });
     }
     this.fetchDog();
-  
-  
   }
 
   shouldComponentUpdate(_nextProps, { srcDog }) {
     if (srcDog.includes('terrier')) {
       return false;
     }
-    localStorage.setItem('srcDog', srcDog);
     return true;
   }
-
-  componentDidUpdate(prevProps, prevState) {
-    
+  
+  componentDidUpdate(_prevProps, prevState) {
+    const jsonMyDogs = JSON.stringify(prevState.myDogs);
+    localStorage.setItem('myDogs', jsonMyDogs);
   }
 
   render() {
@@ -98,9 +109,9 @@ class RandomDog extends React.Component {
       <section className="img-generator">
         <h1 className="title">Gerador de Dogs *_*</h1>
         <div className="image-container">
-          { !loading || !!srcDog
-          ? <img src={ srcDog } className="img-dog" alt="imagem-dog"/>
-          : <span className="loading">Loading ...</span>}
+          { loading
+          ? <span className="loading">Loading ...</span>
+          : <img src={ srcDog } className="img-dog" alt="imagem-dog"/>}
         </div>
         <div className="dog-data">
           <div>Nome: { dogName }</div>
