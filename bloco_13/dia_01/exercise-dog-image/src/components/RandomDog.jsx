@@ -25,7 +25,11 @@ class RandomDog extends React.Component {
       this.setState({
         loading: false,
         srcDog: message
-      })
+      }, () => {
+        if (message.includes('terrier')) {
+          alert('É um terrier por favor aperte Refresh novamente')
+      }
+    })
     })
   };
 
@@ -33,21 +37,47 @@ class RandomDog extends React.Component {
     this.fetchDog();
   }
 
-  componentDidMount() {
+  localStorageSave = (srcDog) => {
+    localStorage.setItem('srcDog', srcDog);
+  }
+
+  localStorageLoad = () => {
     const storage = localStorage.getItem('srcDog');
-    if (!!storage) return this.setState({ srcDog: storage });
-    this.fetchDog();
+    if (!!storage) {
+      this.setState({ srcDog: storage });
+      return true;
+    }
+    return false;
+  }
+
+  alertDog = () => {
+    const { srcDog, loading } = this.state;
+    this.regExp = /\w+-?\w*/g;
+    const raceDog = srcDog.match(this.regExp);
+    const dogName = raceDog ? raceDog[5].replace('-', ' ') : false;
+    if(!!dogName && !loading) {
+      const firstUpperCase = dogName[0].toLocaleUpperCase();
+      const msg = dogName.replace(dogName[0], firstUpperCase);
+      alert(msg);
+    }
+  }
+
+  componentDidMount() {
+    if (!this.localStorageLoad()) {
+      this.fetchDog();
+    }    
   }
 
   shouldComponentUpdate(_nextProps, { srcDog }) {
     if (srcDog.includes('terrier')) {
       return false;
     }
+    this.localStorageSave(srcDog);
     return true;
   }
 
   componentDidUpdate(_prevProps, { srcDog }) {
-    localStorage.setItem('srcDog', srcDog);
+    this.alertDog();
   }
 
   render() {
@@ -56,9 +86,9 @@ class RandomDog extends React.Component {
       <section className="img-generator">
         <h1 className="title">Gerador de Fotos de Caninas</h1>
         <div className="image-container">
-          { loading
-          ? <span className="loading">Loading ...</span>
-          : <img src={srcDog} className="img-dog"/> }
+          { !loading || !!srcDog
+          ? <img src={ srcDog } className="img-dog" alt={ srcDog.match(this.regExp)[5] } />
+          : <span className="loading">Loading ...</span>}
         </div>
         <button type="button" onClick={ this.handleClick } className="refresh" >Refresh</button>
       </section>
