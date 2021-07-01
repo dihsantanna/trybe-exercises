@@ -1,4 +1,5 @@
 import React from 'react';
+import HandleDogs from './HandleDogs';
 import '../App.css'
 
 const URL_API = 'https://dog.ceo/api/breeds/image/random';
@@ -9,13 +10,16 @@ class RandomDog extends React.Component {
   constructor() {
     super();
     this.state = {
+      myDogs: [],
       loading: false,
       srcDog: '',
-      name: '',
+      dogName: '',
+      race: '',
     }
 
     this.fetchDog = this.fetchDog.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.clickToSaveDog = this.clickToSaveDog.bind(this);
   }
   
   async fetchDog() {
@@ -28,7 +32,7 @@ class RandomDog extends React.Component {
       this.setState({
         loading: false,
         srcDog: message,
-        name: this.nameDog(message),
+        race: this.raceDog(message),
       }, () => {
         if (message.includes('terrier')) {
           return alert(MSG_TERRIER)
@@ -41,11 +45,26 @@ class RandomDog extends React.Component {
     this.fetchDog();
   }
 
-  nameDog = (srcDog) => {
+  raceDog = (srcDog) => {
     const raceDog = srcDog.match(regExp);
-    const dogName = raceDog[5].replace('-', ' ');
-    const firstUpperCase = dogName[0].toLocaleUpperCase();
-    return dogName.replace(dogName[0], firstUpperCase);    
+    const dogRace = raceDog[5].replace('-', ' ');
+    const firstUpperCase = dogRace[0].toLocaleUpperCase();
+    return dogRace.replace(dogRace[0], firstUpperCase);    
+  }
+
+  clickToSaveDog({ inputName }) {
+    const { myDogs, srcDog } = this.state;
+    const containDog = myDogs.find((dog) => (dog.src === srcDog))
+    if (!containDog) {
+      return this.setState((prevState) => ({
+        dogName: inputName,
+        myDogs: [...prevState.myDogs, {
+          src:prevState.srcDog,
+          name: inputName,
+        }]
+      }))
+    }
+    alert('Esse Dog já tem dono :D')    
   }
 
   componentDidMount() {
@@ -53,7 +72,7 @@ class RandomDog extends React.Component {
     if (!!storage) {
       return this.setState({
         srcDog: storage,
-        name: this.nameDog(storage),
+        race: this.raceDog(storage),
       });
     }
     this.fetchDog();
@@ -69,8 +88,12 @@ class RandomDog extends React.Component {
     return true;
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    
+  }
+
   render() {
-    const { srcDog, loading, name } = this.state;
+    const { srcDog, loading, race, dogName, inputName } = this.state;
     return (
       <section className="img-generator">
         <h1 className="title">Gerador de Dogs *_*</h1>
@@ -79,8 +102,14 @@ class RandomDog extends React.Component {
           ? <img src={ srcDog } className="img-dog" alt="imagem-dog"/>
           : <span className="loading">Loading ...</span>}
         </div>
-        <span>Nome : { name }</span>
-        <button type="button" onClick={ this.handleClick } className="refresh" >Refresh</button>
+        <div className="dog-data">
+          <div>Nome: { dogName }</div>
+          <div>Raça: { race }</div>
+        </div>
+        <HandleDogs
+          onClickRefresh={ this.handleClick }
+          onClickSave={ this.clickToSaveDog }
+        />
       </section>
     );
   }
