@@ -29,18 +29,19 @@ class RandomDog extends React.Component {
     })
   };
 
+  handleClick() {
+    this.fetchDog();
+  }
+
   componentDidMount() {
     this.fetchDog();
   }
 
-  loadingCreate() {
-    return (
-      <span className="loading">Loading ...</span>
-    );
-  }
-
-  handleClick() {
-    this.fetchDog();
+  shouldComponentUpdate(_nextProps, nextState) {
+    if (nextState.srcDog.includes('terrier')) {
+      return false;
+    }
+    return true;
   }
 
   render() {
@@ -49,7 +50,9 @@ class RandomDog extends React.Component {
       <section className="img-generator">
         <h1 className="title">Gerador de Fotos de Caninas</h1>
         <div className="image-container">
-          { loading ? this.loadingCreate() : <img src={srcDog} className="img-dog"/> }
+          { loading
+          ? <span className="loading">Loading ...</span>
+          : <img src={srcDog} className="img-dog"/> }
         </div>
         <button type="button" onClick={ this.handleClick } className="refresh" >Refresh</button>
       </section>
