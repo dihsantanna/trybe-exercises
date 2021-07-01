@@ -20,7 +20,6 @@ class RandomDog extends React.Component {
     this.fetchDog = this.fetchDog.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.clickToSaveDog = this.clickToSaveDog.bind(this);
-    this.isSavedDog = this.isSavedDog.bind(this);
   }
   
   async fetchDog() {
@@ -39,7 +38,6 @@ class RandomDog extends React.Component {
         if (message.includes('terrier')) {
           return alert(MSG_TERRIER)
         }
-        this.isSavedDog(myDogs, message)
     })
     })
   };
@@ -66,29 +64,28 @@ class RandomDog extends React.Component {
           src:prevState.srcDog,
           name: inputName,
         }]
-      }))
+      }), () => {
+        const { myDogs } = this.state;
+        const jsonMyDogs = JSON.stringify(myDogs);
+        localStorage.setItem('myDogs', jsonMyDogs);
+      })
     }
     alert('Esse Dog já tem nome :D')    
-  }
-
-  isSavedDog(myDogs, message) {
-    const myDog = myDogs.find((dog) => message === dog.src);
-    if (myDog) {
-      this.setState({
-        srcDog: myDog.src
-      })
-    } 
   }
 
   componentDidMount() {
     const jsonMyDogs = localStorage.getItem('myDogs');
     const myDogs = JSON.parse(jsonMyDogs)
-    if (!!myDogs) {
-      this.setState({
-        myDogs: myDogs,
-      });
+    const lastDog = myDogs.reverse();
+    console.log(lastDog);
+    if (!myDogs.length) {
+      return this.fetchDog();      
     }
-    this.fetchDog();
+    this.setState({
+      myDogs: myDogs,
+      dogName: lastDog[0].name,
+      srcDog: lastDog[0].src,
+    }, () => this.raceDog(lastDog[0].src));
   }
 
   shouldComponentUpdate(_nextProps, { srcDog }) {
@@ -104,7 +101,7 @@ class RandomDog extends React.Component {
   }
 
   render() {
-    const { srcDog, loading, race, dogName, inputName } = this.state;
+    const { srcDog, loading, race, dogName } = this.state;
     return (
       <section className="img-generator">
         <h1 className="title">Gerador de Dogs *_*</h1>
