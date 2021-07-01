@@ -20,8 +20,8 @@ class RandomDog extends React.Component {
       loading: true,
     }, async () => {
       const response = await fetch(URL_API);
-      const src = await response.json();
-      const message = src.message;
+      const json = await response.json();
+      const message = json.message;
       this.setState({
         loading: false,
         srcDog: message
@@ -34,14 +34,20 @@ class RandomDog extends React.Component {
   }
 
   componentDidMount() {
+    const storage = localStorage.getItem('srcDog');
+    if (!!storage) return this.setState({ srcDog: storage });
     this.fetchDog();
   }
 
-  shouldComponentUpdate(_nextProps, nextState) {
-    if (nextState.srcDog.includes('terrier')) {
+  shouldComponentUpdate(_nextProps, { srcDog }) {
+    if (srcDog.includes('terrier')) {
       return false;
     }
     return true;
+  }
+
+  componentDidUpdate(_prevProps, { srcDog }) {
+    localStorage.setItem('srcDog', srcDog);
   }
 
   render() {
