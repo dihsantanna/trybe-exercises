@@ -13,6 +13,11 @@ body {
   width: 100%;
 }
 
+main {
+  display: flex;
+  max-height: 100vh;
+}
+
 .img-generator {
   align-items: center;
   display: flex;
@@ -27,10 +32,19 @@ body {
   font-size: 45px;
 }
 
+.board-image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 65%;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .image-container {
   align-items: center;
   display: flex;
-  height: 55%;
+  height: 85%;
   justify-content: center;
   width: 80%;
 }
@@ -41,7 +55,7 @@ body {
 }
 
 .img-dog {
-  border: groove 4px salmon;
+  border: groove 4px #ff1900;
   border-radius: 5px;
   max-height: 100%;
   max-width: 100%;
@@ -120,4 +134,39 @@ body {
 .save-dog:active {
   box-shadow: 0 0 0 0 grey, inset 3px 3px 3px grey;
   transform: translate(3px, 3px);
+}
+
+.dog-list {
+  background-color: #dddddd;
+  border-radius: 5px;
+  max-height: 100%;
+  margin: 0 10px;
+  padding: 20px 10px;
+  width: 25%;
+}
+
+.dog-list ul {
+  max-height: 100%;
+  overflow-x: hidden;
+}
+
+.dog {
+  margin-bottom: 15px;
+  opacity: 0.9;
+  text-align: center;
+  width: 100%;
+}
+
+.dog:hover {
+  opacity: 1;
+  transform: scale(1.03)
+}
+
+.dog img {
+  border: groove 4px #1900ff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 2px black;
+  cursor: pointer;
+  margin-bottom: 5px;
+  width: 95%;
 }

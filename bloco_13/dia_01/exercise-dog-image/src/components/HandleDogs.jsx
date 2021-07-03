@@ -44,7 +44,7 @@ class HandleDogs extends React.Component {
           onChange={ this.handleChange }
           value={ inputName }
           name='inputName'
-          placeholder="Dê um novo nome ao doguinho"
+          placeholder="Dê um nome ao seu doguinho"
         />
         <button
           className="save-dog"
