@@ -5,89 +5,119 @@ import NextButton from './NextButton';
 import './css/pokedex.css';
 
 class Pokedex extends React.Component {
-    constructor() {
-        super()
+	constructor() {
+		super();
 
-        this.state = { 
-            pokeIndex: 0,
-            pokeType: 'Psychic',
-         };
+		this.state = {
+			loading: true,
+			pokeIndex: 0,
+			pokeRender: {},
+			pokeType: 'Psychic',
+			nextBtn: true,
+		};
 
-        this.typeChange = this.typeChange.bind(this);
+		this.typeChange = this.typeChange.bind(this);
 
-        this.pokeFilter = this.pokeFilter.bind(this);
+		this.pokeFilter = this.pokeFilter.bind(this);
 
-        this.indexPokemon = this.indexPokemon.bind(this);
-    };
+		this.indexPokemon = this.indexPokemon.bind(this);
 
-    disabledNextBtn(filterList) {
-        if (filterList.length === 1) {
-            return document.querySelector('.btn-next').setAttribute('disabled', 'disabled');
-        }
-        if (document.querySelector('.btn-next').getAttribute('disabled')) {
-            document.querySelector('.btn-next').removeAttribute('disabled', 'disabled');
-        }
-    }
-    
-    
-    typeChange(e) {
-        const event = e.target.value !== this.state.pokeType;
-        if (event) {
-            this.setState({ pokeIndex: 0 });
-            this.setState({ pokeType: e.target.value });
-        }
-    }
-    
-    pokeFilter(pokemons) {
-        const filterList =  pokemons.filter((pokemon) => pokemon.type.includes(this.state.pokeType));
-        return filterList;
-    }
-    
-    indexPokemon(pokemons) {
-        const index = this.state.pokeIndex;
-        
-        const indexFilter = this.pokeFilter(pokemons).length - 1;
+		this.disabledNextBtn = this.disabledNextBtn.bind(this);
 
-        if (index === indexFilter) return this.setState({ pokeIndex: 0 });
+		this.pokemonRender = this.pokemonRender.bind(this);
+	};
 
-        this.setState((before, _props) => ({ pokeIndex: before.pokeIndex + 1 }))
-    };
-    
-    pokemonRender(pokemons) {
-        const index = this.state.pokeIndex;
-        
-        const filterPokemon = this.pokeFilter(pokemons)
-        this.disabledNextBtn(filterPokemon);
-        const { name, type, averageWeight, image, id } = filterPokemon[index];
-        
-        return <Pokemon
-        name={name}
-        type={type}
-        weight={averageWeight.value}
-        unity={averageWeight.measurementUnit}
-        src={image} alt={`image-${name}`}
-        key={id}
-        />;
-        
-    };
+	disabledNextBtn(length) {
+		if (length <= 1) {
+			return this.setState((state) => ({
+				...state,
+				nextBtn: true,
+			}));
+		}
+		this.setState((state) => ({
+			...state,
+			nextBtn: false,
+		}));
+	}    
+	
+	typeChange({ target }) {
+		const event = target.value !== this.state.pokeType;
+		if (event) {
+			this.setState({
+				pokeIndex: 0,
+				pokeType: target.value
+			}, () => this.pokemonRender());
+		}
+	}
+	
+	pokeFilter(pokemons) {
+		const { pokeType } = this.state;
+		const filterList =  pokemons
+			.filter((pokemon) => pokemon.type.includes(pokeType));
+		return filterList;
+	}
+	
+	indexPokemon() {
+		const { pokemons } = this.props;
+		const { pokeIndex  }= this.state;
+		
+		const indexFilter = this.pokeFilter(pokemons).length - 1;
 
-    render() {
-        const { pokemons } = this.props
-        return (
-            <section className="pokedex" >
-                
-                {this.pokemonRender(pokemons)}
+		if (pokeIndex === indexFilter) return this.setState({ pokeIndex: 0 });
 
-                <PokeTypesButtons btnFunc={(event) => {
-                    this.typeChange(event);
-                }} 
-                    pokemons={pokemons} />
+		this.setState((before) => ({ pokeIndex: before.pokeIndex + 1 }));
+	};
+	
+	async pokemonRender() {
+		const { pokemons } = this.props;
+		const filterPokemon = await this.pokeFilter(pokemons)
+		this.setState((state) => ({
+			...state,
+			pokeRender: [...filterPokemon],
+			loading: false,
+		}));
+		this.disabledNextBtn(filterPokemon.length);
+	};
 
-                <NextButton btnType='button' btnFunc={() => this.indexPokemon(pokemons)} />
+	componentDidMount() {
+		this.pokemonRender();
+	}
 
-            </section>
-        )
-    }
+	render() {
+		const { pokemons } = this.props;
+		const { nextBtn , pokeRender, loading, pokeIndex } = this.state;
+		return (
+			<section
+				className="pokedex"
+			>
+				
+			{
+				loading
+				? <span>Loading . . .</span>
+				: <Pokemon
+					name={pokeRender[pokeIndex].name}
+					type={pokeRender[pokeIndex].type}
+					weight={pokeRender[pokeIndex].averageWeight.value}
+					unity={pokeRender[pokeIndex].averageWeight.measurementUnit}
+					src={pokeRender[pokeIndex].image} alt={`image-${pokeRender.name}`}
+					key={pokeRender[pokeIndex].id}
+				/>
+			}
+
+			<PokeTypesButtons
+				btnFunc={this.typeChange}
+				pokemons={pokemons}
+			/>
+
+			<NextButton
+				btnType='button'
+				btnFunc={this.indexPokemon}
+				disabled={ nextBtn }
+				/>
+
+			</section>
+		)
+	}
 }
 
 export default Pokedex;

@@ -5,15 +5,22 @@ import './css/pokeTypesButtons.css';
 class PokeTypesButtons extends React.Component {
 
     typeButton(pokemons, props) {
-        return pokemons.reduce((arrTypes, pokemon) => {
-            if (!arrTypes.includes(pokemon.type)) {
-                arrTypes.push(pokemon.type);
-            }
-            return arrTypes;
-        }, [] )
-            .map((type) => {
-                return <Button btnType='button' btnClass={`btn-${type.toLowerCase()} btn-type`} btnFunc={props.btnFunc} btnText={type} btnValue={type} key={type} />
-    })
+      return pokemons.reduce((arrTypes, pokemon) => {
+        if (!arrTypes.includes(pokemon.type)) {
+          arrTypes.push(pokemon.type);
+        }
+        return arrTypes;
+      }, [] )
+        .map((type) => {
+          return  <Button
+            btnType='button'
+            btnClass={`btn-${type.toLowerCase()} btn-type`}
+            btnFunc={props.btnFunc}
+            btnText={type}
+            btnValue={type}
+            key={type}
+          />
+        })
     }
 
     render() {
