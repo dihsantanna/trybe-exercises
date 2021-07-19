@@ -21,7 +21,7 @@ class InputTodo extends Component {
   }
 
   render() {
-    const { addTodo } = this.props;
+    const { addTodo, removeTodo, disabledRemove } = this.props;
     const { textTodo } = this.state;
     return (
       <div className="InputTodo">
@@ -33,6 +33,7 @@ class InputTodo extends Component {
           onChange={(e) => this.changeTextTodo(e.target.value)}
         />
         <input id="btnAdd" type="button" value="Adicionar" onClick={() => this.addItem(textTodo,addTodo)} />
+        <input data-testid="id-remove" disabled={disabledRemove}  type="button" value="Remover" onClick={removeTodo} />
       </div>
     );
   }
@@ -41,4 +42,10 @@ export default InputTodo;
 
 InputTodo.propTypes = {
   addTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  disabledRemove: PropTypes.bool,
+}
+
+InputTodo.defaultProps = {
+  disabledRemove: true,
 }
