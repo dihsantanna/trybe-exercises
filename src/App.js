@@ -7,7 +7,6 @@ class App extends React.Component {
     super();
     this.state = { searchDigimon: '', isFetching: false, errorMessage: '' };
   }
-
   inputValue = (value) => {
     this.setState((state) => ({
       ...state,
