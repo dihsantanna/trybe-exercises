@@ -128,13 +128,13 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 15-1: _RTL - Primeiros passos_
 - [x] 15-2: _Testando React com a React Testing Library_
 - [x] 15-3: _Testando React com a React Testing Library - Parte 2_
-- [ ] 15-4: _[Projeto - Testes em React]()_
+- [x] 15-4: _[Projeto - Testes em React]()_
 
 ##### Bloco 16: Introdução ao Redux
 
-- [ ] 16-1: _Introdução ao Redux_
+- [x] 16-1: _Introdução ao Redux_
 - [ ] 16-2: _React com Redux - Parte 1_
-- [ ] 16-3: _React com Redux - PrÃ¡tica_
+- [ ] 16-3: _React com Redux - Prática_
 - [ ] 16-4: _React com Redux - Parte 2_
 - [ ] 16-5: _Testes síncronos com React-Redux_
 - [ ] 16-6: _[Projeto - Tabela com filtros de dados]()_
