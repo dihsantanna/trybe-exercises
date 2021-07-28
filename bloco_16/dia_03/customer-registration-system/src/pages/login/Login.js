@@ -8,7 +8,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: '',
+      email: '',
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -19,7 +19,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { login, password } = this.state;
+    const { email, password } = this.state;
     return (
       <div className="login">
         <Header className="header-login" />
@@ -29,15 +29,15 @@ class Login extends React.Component {
               <h3>SingIn</h3>
             </legend>
             <Input
-              className="login-contain"
-              id="login"
-              name="login"
-              placeholder="Login"
-              value={ login }
+              className="email"
+              id="email "
+              name="email "
+              placeholder="Email"
+              value={ email }
               onChange={ this.handleChange }
             />
             <Input
-              className="password-contain"
+              className="password"
               id="password"
               name="password"
               placeholder="Senha"
