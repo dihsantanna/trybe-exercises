@@ -1,6 +1,6 @@
 ## Você irá criar um sistema de cadastro de clientes. Esse sistema deve ser composto por 4 páginas.
 
-- [ ] A primeira página deve ser a Home . Ela deverá ter um Link que possibilite ao usuário navegar para a página de login.
+- [x] A primeira página deve ser a Home . Ela deverá ter um Link que possibilite ao usuário navegar para a página de login.
 
 - [ ] A segunda página será a de Login . Devem existir 2 campos para pegar os dados do usuário (email e senha). Após o login ser efetuado, o usuário deve ser redirecionado para a página de Clientes cadastrados .
 
