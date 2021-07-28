@@ -1,14 +1,7 @@
-import dataBase from './users';
+import checkLogin from './checkLogin';
+import PrivateRoute from './PrivateRoute';
 
-function checkLogin(login) {
-  const time = 2000;
-  const check = dataBase.find((data) => data.email === login.email
-  && data.password === login.password);
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(!!check);
-    }, time);
-  });
-}
-
-export default checkLogin;
+export {
+  checkLogin,
+  PrivateRoute,
+};

@@ -1,10 +1,10 @@
-.home {
+.notLogged {
   display: grid;
   grid-template-areas: 'header header' 'info info' 'singIn singIn' 'foot foot';
   grid-template-rows: 20vh 10vh 60vh 10vh;
 }
 
-.header-home {
+.header-notLog {
   align-items: center;
   background-color: black;
   color: white;
@@ -14,7 +14,7 @@
   justify-content: center;
 }
 
-.info-home {
+.info-notLog {
   align-items: center;
   display: flex;
   grid-area: info;
@@ -22,11 +22,14 @@
 }
 
 .singIn-content {
+  align-items: center;
   grid-area: singIn;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.btn-home {
+.btn-notLog {
   background-color: black;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 2px silver;
@@ -38,12 +41,12 @@
   text-decoration: none;
 }
 
-.btn-home:hover {
+.btn-notLog:hover {
   opacity: 1;
   box-shadow: 2px 2px 5px 8px silver;
 }
 
-.footer-home {
+.footer-notLog {
   align-items: center;
   background-color: black;
   color: white;
