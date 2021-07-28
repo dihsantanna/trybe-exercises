@@ -1,5 +1,5 @@
 import checkLogin from './utils/auth';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './utils/PrivateRoute';
 
 export {
   checkLogin,

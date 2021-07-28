@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Customers, Register } from './private/pages';
-import { Home, Login, NotLogged } from './public/pages';
+import { Customers, Register, PrivateHome } from './private/pages';
+import { Home, Login, NotLogged } from './public';
 import { PrivateRoute } from './private';
 
 class Routes extends React.Component {
@@ -10,9 +10,10 @@ class Routes extends React.Component {
       <Switch>
         <Route exact path="/" component={ Home } />
         <Route path="/login" component={ Login } />
-        <PrivateRoute path="/customers" component={ Customers } />
-        <PrivateRoute path="/register" component={ Register } />
-        <Route path="/not-logged" component={ NotLogged } />
+        <PrivateRoute path="/private/customers" component={ Customers } />
+        <PrivateRoute path="/private/register" component={ Register } />
+        <PrivateRoute exact path="/private" component={ PrivateHome } />
+        <Route exact path="/not-logged" component={ NotLogged } />
       </Switch>
     );
   }

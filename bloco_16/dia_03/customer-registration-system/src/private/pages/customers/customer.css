@@ -21,6 +21,19 @@
   justify-content: center;
 }
 
+.customers-table {
+  width: 100%;
+  text-align: center;
+}
+
+.tb-odd {
+  background-color: white;
+}
+
+.tb-pair {
+  background-color: silver;
+}
+
 .customer-footer {
   align-items: center;
   background-color: black;

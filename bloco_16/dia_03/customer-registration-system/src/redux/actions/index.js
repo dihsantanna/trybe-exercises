@@ -1,3 +1,7 @@
 import loginAction from './loginAction';
+import logoutAction from './logoutAction';
 
-export default loginAction;
+export {
+  loginAction,
+  logoutAction,
+};

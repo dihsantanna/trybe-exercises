@@ -5,32 +5,21 @@ import PropTypes from 'prop-types';
 
 class PrivateRoute extends React.Component {
   render() {
-    const { isLogged, path, component, render } = this.props;
+    const { isLogged } = this.props;
     return (
       isLogged ? <Route
-        path={ path }
-        component={ component }
-        render={ render }
+        { ...this.props }
       /> : <Redirect to="/not-logged" />
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  isLogged: state.loginReducer.loggedIn,
+  isLogged: state.logReducer.loggedIn,
 });
 
 PrivateRoute.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  path: PropTypes.string,
-  component: PropTypes.node,
-  render: PropTypes.node,
-};
-
-PrivateRoute.defaultProps = {
-  path: '',
-  component: null,
-  render: null,
 };
 
 export default connect(mapStateToProps)(PrivateRoute);

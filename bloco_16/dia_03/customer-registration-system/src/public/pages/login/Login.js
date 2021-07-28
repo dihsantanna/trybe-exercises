@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import loginAction from '../../../redux/actions';
+import { loginAction } from '../../../redux/actions';
 import { checkLogin } from '../../../private';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
@@ -47,7 +47,7 @@ class Login extends React.Component {
 
   render() {
     const { email, password, redirect, failed, loading } = this.state;
-    if (redirect) return <Redirect to="/customers" />;
+    if (redirect) return <Redirect to="/private/customers" />;
     return (
       <div className="login">
         <Header className="header-login" />

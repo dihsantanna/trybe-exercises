@@ -1,0 +1,90 @@
+.homePriv {
+  display: grid;
+  grid-template-areas: 'headPriv headPriv' 'mainhomePriv mainhomePriv' 'footPriv footPriv';
+  grid-template-rows: 20vh 70vh 10vh;
+}
+
+.header-homePriv{
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: headPriv;
+  text-align: center;
+  justify-content: center;
+}
+
+.main-homePriv {
+  display: flex;
+  flex-direction: column;
+  grid-area: mainhomePriv;
+  justify-content: space-around;
+}
+
+.nav-home {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-customers-home {
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px silver;
+  color: white;
+  cursor: pointer;
+  opacity: 0.95;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.btn-customers-home :hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 8px silver;
+}
+
+.btn-register-home {
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px silver;
+  color: white;
+  cursor: pointer;
+  opacity: 0.95;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.btn-register-home :hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 8px silver;
+}
+
+.logout-content {
+  display: flex;
+}
+
+.btn-logout-home {
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px silver;
+  color: white;
+  cursor: pointer;
+  margin: auto;
+  opacity: 0.95;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.btn-logout-home:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 8px silver;
+}
+
+.footer-homePriv {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: footPriv;
+  justify-content: center;
+}
