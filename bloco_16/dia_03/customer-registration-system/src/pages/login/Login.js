@@ -1,6 +1,8 @@
 import React from 'react';
+import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
+import './login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -21,13 +23,13 @@ class Login extends React.Component {
     return (
       <div className="login">
         <Header className="header-login" />
-        <form method="get">
+        <form className="form-login" method="get">
           <fieldset>
             <legend className="login-title">
               <h3>SingIn</h3>
             </legend>
             <Input
-              className="login"
+              className="login-contain"
               id="login"
               name="login"
               placeholder="Login"
@@ -35,15 +37,23 @@ class Login extends React.Component {
               onChange={ this.handleChange }
             />
             <Input
-              className="password"
+              className="password-contain"
               id="password"
               name="password"
               placeholder="Senha"
               value={ password }
               onChange={ this.handleChange }
             />
+            <button
+              type="submit"
+              className="btn-login"
+              onClick={ () => {} }
+            >
+              Entrar
+            </button>
           </fieldset>
         </form>
+        <Footer className="footer-login" />
       </div>
     );
   }

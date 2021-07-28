@@ -1,0 +1,70 @@
+.login {
+  display: grid;
+  grid-template-areas: 'headLog headLog' 'formLogin formLogin' 'footLog footLog';
+  grid-template-rows: 20vh 70vh 10vh;
+}
+
+.header-login {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: headLog;
+  justify-content: center;
+}
+
+.form-login {
+  align-items: center;
+  grid-area: formLogin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-login fieldset {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+}
+
+.login-title {
+  font-size: 1.5em;
+}
+
+.login-contain, .password-contain {
+  width: 30%;
+}
+
+.login-contain input, .password-contain input {
+  padding: 10px;
+}
+
+.btn-login {
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px silver;
+  color: white;
+  cursor: pointer;
+  opacity: 0.95;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.btn-login:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 8px silver;
+}
+
+.footer-login {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: footLog;
+  justify-content: center;
+}

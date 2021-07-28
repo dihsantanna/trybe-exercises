@@ -6,10 +6,13 @@
 }
 
 .header-home {
+  align-items: center;
   background-color: black;
   color: white;
+  display: flex;
   grid-area: header;
   text-align: center;
+  justify-content: center;
 }
 
 .info-home {
@@ -27,6 +30,7 @@
   border-radius: 5px;
   box-shadow: 2px 2px 5px 2px silver;
   color: white;
+  cursor: pointer;
   margin: auto;
   opacity: 0.95;
   padding: 10px 30px;
