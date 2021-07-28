@@ -1,0 +1,53 @@
+.home {
+  display: grid;
+  grid-template-areas: 'header header' 'info info' 'singIn singIn' 'foot foot';
+  grid-template-rows: 20vh 10vh 60vh 10vh;
+}
+
+.header-home {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: header;
+  text-align: center;
+  justify-content: center;
+}
+
+.info-home {
+  align-items: center;
+  display: flex;
+  grid-area: info;
+  justify-content: center;
+}
+
+.singIn-content {
+  grid-area: singIn;
+  display: flex;
+}
+
+.btn-home {
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px silver;
+  color: white;
+  cursor: pointer;
+  margin: auto;
+  opacity: 0.95;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.btn-home:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 8px silver;
+}
+
+.footer-home {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: foot;
+  justify-content: center;
+}

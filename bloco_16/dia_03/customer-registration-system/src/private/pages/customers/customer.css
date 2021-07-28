@@ -1,0 +1,31 @@
+.customer {
+  display: grid;
+  grid-template-areas: 'customerHeader customerHeader' 'customerMain customerMain' 'customerFooter customerFooter';
+  grid-template-rows: 20vh 70vh 10vh;
+}
+
+.customer-header {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: customerHeader;
+  justify-content: center;
+}
+
+.customer-main {
+  align-items: center;
+  grid-area: customerMain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.customer-footer {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  grid-area: customerFooter;
+  justify-content: center;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Home, Login, Customers, Register, NotLogged } from './pages';
-import PrivateRoute from './private';
+import { Customers, Register } from './private/pages';
+import { Home, Login, NotLogged } from './public/pages';
+import { PrivateRoute } from './private';
 
 class Routes extends React.Component {
   render() {

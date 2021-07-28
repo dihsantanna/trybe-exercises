@@ -2,12 +2,12 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import loginAction from '../../redux/actions';
-import { checkLogin } from '../../private';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import Loading from '../../components/Loading';
+import loginAction from '../../../redux/actions';
+import { checkLogin } from '../../../private';
+import Footer from '../../../components/Footer';
+import Header from '../../../components/Header';
+import Input from '../../../components/Input';
+import Loading from '../../../components/Loading';
 import './login.css';
 
 class Login extends React.Component {

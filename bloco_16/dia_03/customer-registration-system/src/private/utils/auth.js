@@ -1,4 +1,4 @@
-import dataBase from './data/users';
+import dataBase from '../data/users';
 
 function checkLogin(login) {
   const time = 2000;
@@ -10,10 +10,5 @@ function checkLogin(login) {
     }, time);
   });
 }
-
-console.log(checkLogin({
-  email: 'trybe@trybe.com',
-  password: 'trybe',
-}));
 
 export default checkLogin;

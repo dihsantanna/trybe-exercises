@@ -1,4 +1,4 @@
-const storage = JSON.parse(localStorage.getItem('customers'));
+const storage = JSON.parse(localStorage.getItem('customers')) || [];
 
 const customers = [...storage];
 
