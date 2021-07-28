@@ -1,5 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import loginAction from '../../redux/actions';
+import { checkLogin } from '../../private';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -12,8 +16,25 @@ class Login extends React.Component {
       email: '',
       password: '',
       redirect: false,
+      failed: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+    const { email, password } = this.state;
+    const { logIn } = this.props;
+    const check = await checkLogin({ email, password });
+    if (check) {
+      logIn();
+      return this.setState({
+        redirect: true,
+        failed: false,
+      });
+    }
+    this.setState({ failed: true });
   }
 
   handleChange({ target: { name, value } }) {
@@ -21,7 +42,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password, redirect } = this.state;
+    const { email, password, redirect, failed } = this.state;
     if (redirect) return <Redirect to="/customers" />;
     return (
       <div className="login">
@@ -34,7 +55,7 @@ class Login extends React.Component {
             <Input
               className="email"
               id="email "
-              name="email "
+              name="email"
               placeholder="Email"
               value={ email }
               onChange={ this.handleChange }
@@ -50,11 +71,20 @@ class Login extends React.Component {
             <button
               type="submit"
               className="btn-login"
-              onClick={ () => {} }
+              onClick={ this.handleSubmit }
             >
               Entrar
             </button>
           </fieldset>
+          {failed
+            ? (
+              <span
+                style={ { color: 'red', fontSize: '14px' } }
+              >
+                E-mail ou Senha incorretos.
+              </span>
+            )
+            : ''}
         </form>
         <Footer className="footer-login" />
       </div>
@@ -62,4 +92,12 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  logIn: () => dispatch(loginAction()),
+});
+
+Login.propTypes = {
+  logIn: PropTypes.func.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

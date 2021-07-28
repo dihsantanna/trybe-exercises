@@ -3,5 +3,6 @@ import PrivateRoute from './PrivateRoute';
 
 export {
   checkLogin,
-  PrivateRoute,
 };
+
+export default PrivateRoute;
