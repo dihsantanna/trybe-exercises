@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -10,6 +11,7 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
+      redirect: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,7 +21,8 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, redirect } = this.state;
+    if (redirect) return <Redirect to="/customers" />;
     return (
       <div className="login">
         <Header className="header-login" />
