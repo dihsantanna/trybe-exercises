@@ -1,0 +1,39 @@
+.home {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: 'header header' 'info info' 'singIn singIn' 'foot foot';
+  grid-template-rows: 20vh 5vh 60vh 10vh;
+}
+
+.header-home {
+  background-color: black;
+  color: white;
+  grid-area: header;
+  text-align: center;
+}
+
+.info-home {
+  grid-area: info;
+  text-align: center;
+}
+
+.singIn-content {
+  grid-area: singIn;
+  display: flex;
+}
+
+.btn-home {
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px silver;
+  color: white;
+  margin: auto;
+  opacity: 0.95;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+.btn-home:hover {
+  opacity: 1;
+  box-shadow: 2px 2px 5px 8px silver;
+}
