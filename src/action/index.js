@@ -1,8 +1,5 @@
 import charAPI from '../services/charAPI';
-
-export const IS_FETCHING = 'IS_FETCHING';
-export const FETCH_OK = 'FETCH_OK';
-export const FETCH_ERROR = 'FETCH_ERROR';
+import { IS_FETCHING, FETCH_OK, FETCH_ERROR } from "./types";
 
 const isFetching = () => ({ type: IS_FETCHING });
 
@@ -11,11 +8,11 @@ const getChar = (character) => ({ type: FETCH_OK, character });
 const getCharError = (error) => ({ type: FETCH_ERROR, error });
 
 const requestChar = (char) => (async (dispatch) => {
-  dispatch(isFetching());
+  await dispatch(isFetching());
   const result = await charAPI(char);
-  return typeof result === 'object'
-  ? dispatch(getChar(result))
-  : dispatch(getCharError(result));
+  return Array.isArray(result)
+  ? dispatch(getChar(result[0]))
+  : dispatch(getCharError(result[0]));
 })
 
 export default requestChar;

@@ -35,7 +35,11 @@ CharacterInfo.propTypes = {
     name: PropTypes.string,
     gender: PropTypes.string,
     aliases: PropTypes.arrayOf(PropTypes.string)
-  }).isRequired,
+  }),
+}
+
+CharacterInfo.defaultProps = {
+  character: undefined,
 }
 
 export default connect(mapStateToProps)(CharacterInfo);

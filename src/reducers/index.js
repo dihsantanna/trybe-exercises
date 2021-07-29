@@ -1,7 +1,7 @@
-import { IS_FETCHING, FETCH_OK, FETCH_ERROR } from "../action";
+import { IS_FETCHING, FETCH_OK, FETCH_ERROR } from "../action/types";
 
 const INITIAL_STATE = {
-  character: {},
+  character: undefined,
   loading: false,
   error: '',
 }
@@ -22,7 +22,7 @@ function reducer(state = INITIAL_STATE, action) {
       };
     case FETCH_ERROR:
       return {
-        character: {},
+        character: undefined,
         loading: false,
         error: action.error,
       }
