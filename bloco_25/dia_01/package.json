@@ -1,0 +1,15 @@
+{
+  "name": "my-scripts",
+  "version": "1.0.0",
+  "description": "Calculadora de IMC",
+  "main": "imc.js",
+  "scripts": {
+    "imc": "node imc.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diogo Sant'Anna",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
