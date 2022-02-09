@@ -1,12 +1,14 @@
 {
-  "name": "my-scripts",
+  "name": "the-imc-calc",
   "version": "1.0.0",
   "description": "Calculadora de IMC",
   "main": "imc.js",
+  "git repository": "https://github.com/dihsantanna/trybe-exercises/tree/exercises/25.1",
   "scripts": {
-    "imc": "node imc.js",
+    "imc": "node src/imc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": "imc",
   "author": "Diogo Sant'Anna",
   "license": "ISC",
   "dependencies": {
